@@ -12,7 +12,7 @@ import Image from "next/image";
 
 const HeroContent = () => {
   const handleHireMeClick = () => {
-    window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank");
+    window.open("/Praneetha_Mukkamala_Resume.pdf.pdf", "_blank");
   };
   return (
     <motion.div
