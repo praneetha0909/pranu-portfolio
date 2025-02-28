@@ -31,7 +31,7 @@ export const Skill_data = [
     },
     {
       skill_name: "Redux",
-      Image: "/openai.jpeg",
+      Image: "/openai.jpg",
       width: 80,
       height: 80,
     },
