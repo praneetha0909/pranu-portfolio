@@ -3,7 +3,7 @@ import ProjectCard from "../sub/ProjectCard";
 
 const Projects = () => {
   return (
-    <div className="flex flex-col items-center justify-center py-20">
+    <div className="flex flex-col items-center justify-center py-20"id="projects">
       {/* Section 1: Education */}
       <h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-500 py-10">
         Education
