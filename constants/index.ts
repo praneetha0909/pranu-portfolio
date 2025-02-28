@@ -142,7 +142,7 @@ export const Skill_data = [
     },
     {
       skill_name: "React Query",
-      Image: "/c.jpeg",
+      Image: "/restapi2.jpeg",
       width: 80,
       height: 80,
     },
