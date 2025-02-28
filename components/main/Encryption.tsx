@@ -28,8 +28,8 @@ const Encryption = () => {
           <Image
             src="/profile.jpg"
             alt="Lock Main"
-            width={70}
-            height={70}
+            width={100}
+            height={100}
             className=" z-10"
           />
         </div>
