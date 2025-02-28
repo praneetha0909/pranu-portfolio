@@ -46,7 +46,7 @@ const Projects = () => {
       <h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-500 py-10">
         Projects
       </h1>
-      <div className="font-bold text-[16px] bg-gradient-to-r from-blue-500 to-cyan-500 text-transparent bg-clip-text">
+      <div className="flex justify-center items-center gap-12 flex-wrap">
         <ProjectCard
          src="/Port1.jpeg"
          title="Job compatibility"
