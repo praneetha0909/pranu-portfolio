@@ -31,7 +31,7 @@ export const Skill_data = [
     },
     {
       skill_name: "Redux",
-      Image: "/go.png",
+      Image: "/openai.jpeg",
       width: 80,
       height: 80,
     },
@@ -142,7 +142,7 @@ export const Skill_data = [
     },
     {
       skill_name: "React Query",
-      Image: "/reactquery.png",
+      Image: "/c.jpeg",
       width: 80,
       height: 80,
     },
@@ -175,7 +175,7 @@ export const Skill_data = [
     },
     {
       skill_name: "Mongo db",
-      Image: "/mongodb.png",
+      Image: "/kuber.png",
       width: 40,
       height: 40,
     },
