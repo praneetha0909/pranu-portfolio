@@ -46,7 +46,7 @@ html, body {
       rgba(255, 190, 10, 0.32) 100%
     ),
     rgba(255, 169, 21, 0.12);
-  box-shadow: inset 0 0 12px #d19932;
+  box-shadow: inset 0 0 12px #ffae003d;
 }
 .button-primary:hover {
   background: linear-gradient(
