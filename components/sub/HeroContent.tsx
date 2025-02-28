@@ -11,6 +11,9 @@ import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
 const HeroContent = () => {
+  const handleHireMeClick = () => {
+    window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank");
+  };
   return (
     <motion.div
       initial="hidden"
@@ -48,8 +51,9 @@ const HeroContent = () => {
           I&apos;m a Software developer with expertise in backend, AI, and cloud solutions, optimizing systems with Java, Python, React, and CI/CD
         </motion.p>
         <motion.a
-          variants={slideInFromLeft(1)}
-          className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
+          onClick={handleHireMeClick}
+          variants={slideInFromRight(1)}
+          className="py-2 px-5 bg-gradient-to-r from-blue-700 to-cyan-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
         >
           Resume
         </motion.a>
