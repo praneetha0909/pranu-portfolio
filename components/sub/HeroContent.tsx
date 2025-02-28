@@ -53,7 +53,7 @@ const HeroContent = () => {
         <motion.a
           onClick={handleHireMeClick}
           variants={slideInFromRight(1)}
-          className="py-2 px-4 bg-gradient-to-r from-orange-700 to-purple-500 cursive text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
+          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 cursive text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
         >
           Resume
         </motion.a>
