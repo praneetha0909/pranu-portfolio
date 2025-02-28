@@ -19,7 +19,7 @@ const Navbar = () => {
           />
           
 
-          <span className="font-bold ml-[10px] hidden md:block text-orange-300">
+          <span className="font-bold ml-[10px] hidden md:block text-orange-200">
             Praneetha Mukkamala
           </span>
         </a>
