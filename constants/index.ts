@@ -1,19 +1,19 @@
 export const Skill_data = [
     {
       skill_name: "Html 5",
-      Image: "/html.png",
+      Image: "/google.png",
       width: 80,
       height: 80,
     },
     {
       skill_name: "Css",
-      Image: "/css.png",
+      Image: "/java.png",
       width: 80,
       height: 80,
     },
     {
       skill_name: "Java Script",
-      Image: "/js.png",
+      Image: "/Sql.png",
       width: 65,
       height: 65,
     },
