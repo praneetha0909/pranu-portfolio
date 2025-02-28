@@ -15,14 +15,14 @@ const Footer = () => {
         <div className="w-full flex flex-col items-center justify-center m-auto">
             <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
                 <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-                    <div className="font-bold text-[16px]">Contact Me</div>
+                    <div className="font-bold text-[16px] bg-gradient-to-r from-blue-500 to-cyan-500 text-transparent bg-clip-text">Contact Me</div>
                    <p className="flex flex-row items-center my-[15px] cursor-pointer">
                      
                         <span className="text-[15px] ml-[6px]">mukkamalapraneetha@gmail.com</span>    
                     </p>
                     <p className="flex flex-row items-center my-[15px] cursor-pointer">
                       
-                        <span className="text-[15px] ml-[6px]">+1(682)391-8986</span>    
+                        <span className="text-[15px] ml-[6px]">(682)391-8986</span>    
                     </p>
                     <p className="flex flex-row items-center my-[15px] cursor-pointer">
                   
