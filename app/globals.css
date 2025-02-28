@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.cursive {
+  font-family: "Cedarville Cursive", cursive;
+}
+.Welcome-text {
+  background: linear-gradient(
+      0deg,
+      rgba(247, 165, 33, 0.4),
+      rgba(232, 135, 0, 0.4)
+    ),
+    linear-gradient(90.01deg, #000000 0.01%, #000000 50.01%, #000000 100%);
+  background-blend-mode: normal, screen;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Welcome-box {
+  isolation: isolate;
+  overflow: hidden;
+  align-items: center;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border-radius: 32px;
+  box-shadow: inset 0 -7px 11px #0000001f;
+  display: flex;
+
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  transition: 0.45s cubic-bezier(0.6, 0.6, 0, 1) box-shadow;
+}
+html, body {
+  background-color: black;
+  color: white; /* Ensures text is visible */
+}
+.button-primary {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 175, 16, 0) 0%,
+      rgba(255, 190, 10, 0.32) 100%
+    ),
+    rgba(255, 169, 21, 0.12);
+  box-shadow: inset 0 0 12px ##ffae003d;
+}
+.button-primary:hover {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 138, 12, 0) 0%,
+      rgba(255, 157, 0, 0.42) 100%
+    ),
+    rgba(255, 179, 0, 0.24);
+  box-shadow: inset 0 0 12px #ffffff70;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+.security-section {
+  background-color: black;
+  color: white;
+}
