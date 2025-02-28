@@ -38,15 +38,15 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-row gap-5">
-          {Socials.map((social) => (
-            <Image
-              src={social.src}
-              alt={social.name}
-              key={social.name}
-              width={24}
-              height={24}
-            />
-          ))}
+          <a href="https://www.linkedin.com/in/praneethamss/ target="_blank" rel="noopener noreferrer">
+            <Image src="/Linkedin.png" alt="LinkedIn" width={24} height={24} />
+          </a>
+          <a href="https://github.com/praneetha0909" target="_blank" rel="noopener noreferrer">
+            <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
+          </a>
+          <a href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">
+            <Image src="/discord.svg" alt="Discord" width={24} height={24} />
+          </a>
         </div>
       </div>
     </div>
