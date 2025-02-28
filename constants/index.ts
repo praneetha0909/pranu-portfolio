@@ -19,7 +19,7 @@ export const Skill_data = [
     },
     {
       skill_name: "Tailwind Css",
-      Image: "/tailwind.png",
+      Image: "/Jupyter.png",
       width: 80,
       height: 80,
     },
@@ -31,7 +31,7 @@ export const Skill_data = [
     },
     {
       skill_name: "Redux",
-      Image: "/redux.png",
+      Image: "/go.png",
       width: 80,
       height: 80,
     },
