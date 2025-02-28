@@ -28,17 +28,17 @@ const Projects = () => {
         <ProjectCard
           src="/reality.png"
           title="RealityAI"
-          description="Software Developer"
+          description="Software Developer (January 2025 - Present)"
         />
         <ProjectCard
           src="/tom.jpg"
           title="Tomorrows AI"
-          description="Software Developer"
+          description="Software Developer (September 2024 - December 2024)"
         />
         <ProjectCard
           src="/infosys.png"
           title="Infosys"
-          description="Software Engineer"
+          description="Software Engineer (March 2021 - November 2022"
         />
       </div>
 
@@ -46,7 +46,7 @@ const Projects = () => {
       <h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-500 py-10">
         Projects
       </h1>
-      <div className="flex justify-center items-center gap-12 flex-wrap">
+      <div className="font-bold text-[16px] bg-gradient-to-r from-blue-500 to-cyan-500 text-transparent bg-clip-text">
         <ProjectCard
          src="/Port1.jpeg"
          title="Job compatibility"
