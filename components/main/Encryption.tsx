@@ -49,8 +49,8 @@ const Encryption = () => {
           autoPlay
           playsInline
           preload="false"
-          className="w-full h-auto opacity-10"
-          src="/encryption.webm/"
+          className="w-full h-auto opacity-80"
+          src="/video2.webm/"
         />
       </div>
     </div>
