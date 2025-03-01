@@ -46,7 +46,7 @@ const Navbar = () => {
             <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
           </a>
           <a href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">
-            <Image src="/discord.svg" alt="Discord" width={24} height={24} />
+            <Image src="/twitter.png" alt="Discord" width={24} height={24} />
           </a>
         </div>
       </div>
