@@ -50,7 +50,7 @@ const Projects = () => {
         <ProjectCard
          src="/Port1.jpeg"
          title="Job compatibility"
-          description={"Developed a free, AI-powered tool that calculates a compatibility"} // ✅ New Line
+          description={"Developed a free, AI-powered tool that calculates a compatibility    Developed a free, AI-powered tool that calculates a compatibility     Developed a free, AI-powered tool that calculates a compatibility"} // ✅ New Line
         />
         <ProjectCard
           src="/Port2.jpeg"
