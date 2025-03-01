@@ -18,7 +18,7 @@ const Navbar = () => {
             height={50}
             className="cursor-pointer hover:animate-slowspin"
           />
-          <span className="cursive text-[20px] text-gray-300">
+          <span className="cursive text-[16px] md:text-[20px] text-gray-300 pl-2">
             Praneetha Mukkamala
           </span>
         </a>
