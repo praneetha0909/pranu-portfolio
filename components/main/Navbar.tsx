@@ -7,12 +7,12 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#0374ff]/50 bg-[#03001417] backdrop-blur-md z-50 px-5 md:px-10">
+    <nav className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#FFD700]/50 bg-[#FFD700] backdrop-blur-md z-50 px-5 md:px-10">
       <div className="w-full h-full flex items-center justify-between px-4 md:px-10">
         {/* Logo */}
         <a href="#about-me" className="flex items-center">
           <Image
-            src="/logo1.jpeg"
+            src="/logo.png"
             alt="logo"
             width={50}
             height={50}
@@ -24,7 +24,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6 bg-[#0300145e] border border-[#0374ff] px-6 py-2 rounded-full text-gray-200">
+        <div className="hidden md:flex items-center space-x-6 bg-[#FFD700] border border-[#0374ff] px-6 py-2 rounded-full text-gray-200">
           <a href="#about-me" className="cursor-pointer">
             Home
           </a>
@@ -38,14 +38,14 @@ const Navbar = () => {
 
         {/* Desktop Social Links */}
         <div className="hidden md:flex flex-row gap-5">
-          <a href="https://www.linkedin.com/in/prasannakottur/" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/praneethamss/" target="_blank" rel="noopener noreferrer">
             <Image src="/Linkedin.png" alt="LinkedIn" width={24} height={24} />
           </a>
-          <a href="https://github.com/kotturp" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/praneetha0909" target="_blank" rel="noopener noreferrer">
             <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
           </a>
-          <a href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">
-            <Image src="/discord.svg" alt="Discord" width={24} height={24} />
+          <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
+            <Image src="/twitter.png" alt="Discord" width={24} height={24} />
           </a>
         </div>
 
@@ -80,14 +80,14 @@ const Navbar = () => {
           </a>
           {/* Mobile Social Links */}
           <div className="flex gap-5 mt-3">
-            <a href="https://www.linkedin.com/in/prasannakottur/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.linkedin.com/in/praneethamss/" target="_blank" rel="noopener noreferrer">
               <Image src="/Linkedin.png" alt="LinkedIn" width={24} height={24} />
             </a>
-            <a href="https://github.com/kotturp" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/praneetha0909" target="_blank" rel="noopener noreferrer">
               <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
             </a>
-            <a href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">
-              <Image src="/discord.svg" alt="Discord" width={24} height={24} />
+            <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
+              <Image src="/twitter.png" alt="Discord" width={24} height={24} />
             </a>
           </div>
         </div>
