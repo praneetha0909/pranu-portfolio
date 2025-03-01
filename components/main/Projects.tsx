@@ -29,6 +29,10 @@ const Projects = () => {
           src="/reality.png"
           title="RealityAI"
           description="Software Developer (January 2025 - Present)"
+          description="Engineered scalable ReactJS interfaces for Marvel AI and Sky AI analytics and automation tools, integrating Node.js
+& Python backend services, resulting in 30% faster load times and 20% increased AI adoption.
+• Designed and catalyzed RESTful APIs with Flask to enable real-time data processing and cloud service integrations,
+reducing latency by 30% and increasing data throughput by 45%."
         />
         <ProjectCard
           src="/tom.jpg"
