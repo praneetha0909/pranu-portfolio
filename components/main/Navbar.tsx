@@ -45,8 +45,8 @@ const Navbar = () => {
           <a href="https://github.com/praneetha0909" target="_blank" rel="noopener noreferrer">
             <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
           </a>
-          <a href="https://discord.com/channels/@me" target="_blank" rel="noopener noreferrer">
-            <Image src="/twitter.png" alt="Discord" width={24} height={24} />
+          <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
+            <Image src="/twitter.png" alt="Twitter" width={24} height={24} />
           </a>
         </div>
       </div>
