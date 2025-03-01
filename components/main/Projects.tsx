@@ -60,7 +60,7 @@ const Projects = () => {
         <ProjectCard
           src="/Port3.jpeg"
           title="Voice Based ChatBot"
-          description="Designed a voice-based feedback analysis system with ChatGPT integration."
+          description="Designed a voice-based feedback analysis system with ChatGPT integration. Designed a voice-based feedback analysis system with ChatGPT integration. Designed a voice-based feedback analysis system with ChatGPT integration."
         />
       </div>
     </div>
