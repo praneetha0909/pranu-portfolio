@@ -15,7 +15,7 @@ const Encryption = () => {
         >
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
             {" "}
-            About me{" "}
+            {" "}
           </span>
         </motion.div>
       </div>
@@ -24,7 +24,7 @@ const Encryption = () => {
         <div className="flex flex-col items-center group cursor-pointer w-auto h-auto">
           
           <Image
-            src="/profile.jpg"
+            src="/"
             alt="Lock Main"
             width={300}
             height={300}
