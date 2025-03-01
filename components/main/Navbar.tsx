@@ -1,4 +1,4 @@
-"use client";  // This tells Next.js that this is a client component
+"use client";  
 
 import { useState } from "react";
 import Image from "next/image";
@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <nav className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#d19932]/50 bg-[#03001417] backdrop-blur-md z-50 px-5 md:px-10">
       <div className="w-full h-full flex items-center justify-between px-4 md:px-10">
-        {/* Logo */}
+        {/* Left Section - Logo */}
         <a href="#about-me" className="flex items-center">
           <Image
             src="/logo.png"
@@ -23,8 +23,8 @@ const Navbar = () => {
           </span>
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6 bg-[#030014] border border-[#d19932] px-6 py-2 rounded-full text-gray-200">
+        {/* Center Section - Navigation */}
+        <div className="hidden md:flex items-center space-x-6 bg-[#000003] border border-[#d19932] px-6 py-2 rounded-full text-gray-200">
           <a href="#about-me" className="cursor-pointer">
             Home
           </a>
@@ -36,30 +36,33 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Desktop Social Links */}
-        <div className="hidden md:flex flex-row gap-5">
-          <a href="https://www.linkedin.com/in/praneethamss/" target="_blank" rel="noopener noreferrer">
-            <Image src="/Linkedin.png" alt="LinkedIn" width={24} height={24} />
-          </a>
-          <a href="https://github.com/praneetha0909" target="_blank" rel="noopener noreferrer">
-            <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
-          </a>
-          <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
-            <Image src="/twitter.png" alt="Discord" width={30} height={30} />
-          </a>
-        </div>
+        {/* Right Section - Social Links & Toggle (Centered on Mobile) */}
+        <div className="flex items-center gap-5">
+          {/* Social Links (Visible only on desktop) */}
+          <div className="hidden md:flex flex-row gap-5">
+            <a href="https://www.linkedin.com/in/praneethamss/" target="_blank" rel="noopener noreferrer">
+              <Image src="/Linkedin.png" alt="LinkedIn" width={24} height={24} />
+            </a>
+            <a href="https://github.com/praneetha0909" target="_blank" rel="noopener noreferrer">
+              <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
+            </a>
+            <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
+              <Image src="/twitter.png" alt="Discord" width={30} height={30} />
+            </a>
+          </div>
 
-        {/* Hamburger Menu Button (Mobile) */}
-        <button
-          className="md:hidden text-gray-200 focus:outline-none"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? (
-            <Image src="/close1.png" alt="Close" width={30} height={30} />
-          ) : (
-            <Image src="/menu4.png" alt="Menu" width={30} height={30} />
-          )}
-        </button>
+          {/* Hamburger Menu Button (Centered on Mobile) */}
+          <button
+            className="md:hidden absolute left-1/2 transform -translate-x-1/2 text-gray-200 focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? (
+              <Image src="/close1.png" alt="Close" width={30} height={30} />
+            ) : (
+              <Image src="/menu4.png" alt="Menu" width={30} height={30} />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
