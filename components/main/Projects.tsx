@@ -12,12 +12,12 @@ const Projects = () => {
         <ProjectCard
           src="/uta.png"
           title="University of Texas at Arlington"
-          description={`Master's in Computer Science (2023 - 2024)<br /></ProjectCard>Course Work: Design and Analysis of Algorithms, Cloud computing & Big data, Database systems, Artificial Intelligence,  Machine Learning, Wed Data Management, Distributed systems`}
+          description={`Master's in Computer Science (January 2023 - December 2024)<br /></ProjectCard>Course Work: Design and Analysis of Algorithms, Cloud computing & Big data, Database systems, Artificial Intelligence,  Machine Learning, Wed Data Management, Distributed systems`}
         />
         <ProjectCard
           src="/vignan.png"
           title="Vignan Institute of Technology & Science"
-          description={`Bachelor's in Computer Science (2016 - 2020)\n-Course Work: Python, Java, C, C++, Data Mining, Software Engineering`}
+          description={`Bachelor's in Computer Science (August 2016 - September 2020)\n-Course Work: Python, Java, C, C++, Data Mining, Software Engineering`}
         />
       </div>
       {/* Section 2: Work Experience */}
@@ -27,7 +27,7 @@ const Projects = () => {
       <div className="flex justify-center items-center gap-12 flex-wrap">
         <ProjectCard
           src="/reality.png"
-          title="RealityAI"
+          title="Reality AI Lab"
           description={`Software Developer (January 2025 - Present)\n-Engineered scalable ReactJS interfaces for Marvel AI and Sky AI analytics and automation tools, integrating Node.js
 & Python backend services, resulting in 30% faster load times and 20% increased AI adoption\n-Designed and catalyzed RESTful APIs with Flask to enable real-time data processing and cloud service integrations,
 reducing latency by 30% and increasing data throughput by 45%`}
