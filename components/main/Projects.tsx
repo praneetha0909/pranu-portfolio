@@ -12,7 +12,7 @@ const Projects = () => {
         <ProjectCard
           src="/uta.png"
           title="University of Texas at Arlington"
-          description={`Master's in Computer Science (2023 - 2024)\n-Course Work: Design and Analysis of Algorithms, Cloud computing & Big data, Database systems, Artificial Intelligence,  Machine Learning, Wed Data Management, Distributed systems`}
+          description={`Master's in Computer Science (2023 - 2024)<br /></ProjectCard>Course Work: Design and Analysis of Algorithms, Cloud computing & Big data, Database systems, Artificial Intelligence,  Machine Learning, Wed Data Management, Distributed systems`}
         />
         <ProjectCard
           src="/vignan.png"
