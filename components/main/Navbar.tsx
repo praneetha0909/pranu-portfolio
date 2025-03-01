@@ -19,12 +19,12 @@ const Navbar = () => {
             className="cursor-pointer hover:animate-slowspin"
           />
           <span className="cursive text-[20px] hidden  text-gray-300">
-            Prasanna Kottur
+            Praneetha Mukkamala
           </span>
         </a>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-6 bg-[#0374ff] border border-[#0374ff] px-6 py-2 rounded-full text-gray-200">
+        <div className="hidden md:flex items-center space-x-6 bg-[##030014] border border-[#0374ff] px-6 py-2 rounded-full text-gray-200">
           <a href="#about-me" className="cursor-pointer">
             Home
           </a>
