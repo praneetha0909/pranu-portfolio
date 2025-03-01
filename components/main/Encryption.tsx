@@ -21,16 +21,7 @@ const Encryption = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center translate-y-[-50px] absolute z-[20] w-auto h-auto">
-        <div className="flex flex-col items-center group cursor-pointer w-auto h-auto">
-          
-          <Image
-            src="/"
-            alt="Lock Main"
-            width={300}
-            height={300}
-            className=" z-10"
-          />
-        </div>
+        
 
         <div className="Welcome-box px-[15px] py-[4px] z-[20] brder my-[20px] border-[#7042f88b] opacity-[0.9]">
           <h1 className="Welcome-text text-[12px]"></h1>
