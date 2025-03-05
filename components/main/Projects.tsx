@@ -50,8 +50,8 @@ const Projects = () => {
       <div className="flex justify-center items-center gap-12 flex-wrap">
         <ProjectCard
          src="/Port1.jpeg"
-         title="Job compatibility"
-          description="Developed a free, AI-powered tool that calculates a compatibility" // ✅ New Line
+         title="Job compatibility Checker"
+          description="Resume compatibility tool that analyzes job descriptions, provides a match score, and suggests AI-driven improvements." // ✅ New Line
         />
         <ProjectCard
           src="/Port2.jpeg"
