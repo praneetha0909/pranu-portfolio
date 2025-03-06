@@ -1,54 +1,58 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import ProjectCard from "../sub/ProjectCard";
 
-interface Props {
-  src?: string;  // ✅ Making props optional
-  title?: string;
-  description?: string;
-  onClick?: () => void;
-}
+const Projects = () => {
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
 
-const ProjectCard = ({ src = "", title = "", description = "", onClick }: Props) => { 
-  
-  const [isExpanded, setIsExpanded] = useState(false);
+  const handleExpand = (index: number) => {
+    setExpandedCard(expandedCard === index ? null : index);
+  };
 
   return (
-    <motion.div
-      className="w-[300px] flex flex-col items-center bg-[#1A1A2E] rounded-lg shadow-lg border border-[#5807f7] cursor-pointer transition-all duration-300"
-      whileHover={{ scale: 1.05 }}
-      onClick={() => setIsExpanded(!isExpanded)}
-    >
-      {/* Project Image */}
-      <div className="relative w-full h-[120px] overflow-hidden">
-        <Image
-          src={src}
-          alt={title}
-          layout="fill"
-          objectFit="contain"
-          className="rounded-t-lg"
-        />
+    <div className="flex flex-col items-center justify-center py-20" id="projects">
+      <h1 className="text-[60px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-500 py-10">
+        Projects
+      </h1>
+      <div className="flex justify-center items-center gap-12 flex-wrap">
+        {[
+          {
+            src: "/Port1.jpeg",
+            title: "Job Compatibility Checker",
+            description:
+              "AI-powered tool that analyzes job descriptions, provides match scores, and suggests AI-driven improvements.",
+            fullDetails:
+              "This tool leverages NLP and AI-driven algorithms to compare resumes with job descriptions. It provides users with a compatibility percentage and highlights missing skills.",
+          },
+          {
+            src: "/Port2.jpeg",
+            title: "Query Genie",
+            description:
+              "Engineered Python-based chatbot using PandasAI, processing over 250,000+ entries with 95% precision.",
+            fullDetails:
+              "Query Genie is an AI-driven chatbot built with PandasAI, capable of processing and analyzing structured data. It provides quick insights and helps automate repetitive queries.",
+          },
+          {
+            src: "/Port3.jpeg",
+            title: "Voice Based ChatBot",
+            description:
+              "Designed a voice-based feedback analysis system with ChatGPT integration.",
+            fullDetails:
+              "This AI-powered chatbot enables users to provide feedback via voice. Integrated with OpenAI's GPT model, it transcribes and analyzes spoken input to generate meaningful insights.",
+          },
+        ].map((project, index) => (
+          <ProjectCard
+            key={index}
+            src={project.src}
+            title={project.title}
+            description={expandedCard === index ? project.fullDetails : project.description}
+            onClick={() => handleExpand(index)} // ✅ Now `onClick` is properly passed
+          />
+        ))}
       </div>
-
-      {/* Text Content */}
-      <div className="w-full p-4 text-center">
-        <h1 className="text-lg font-semibold text-white">{title}</h1>
-        <p className="mt-1 text-gray-400 text-sm">
-          {isExpanded ? fullDetails : description}
-        </p>
-        
-        {/* Expand Button */}
-        <motion.button
-          className="mt-3 px-4 py-2 text-sm bg-blue-500 text-white rounded-md transition-all duration-300 hover:bg-blue-600"
-          whileHover={{ scale: 1.1 }}
-        >
-          {isExpanded ? "Show Less" : "Read More"}
-        </motion.button>
-      </div>
-    </motion.div>
+    </div>
   );
 };
 
-export default ProjectCard;
+export default Projects;
