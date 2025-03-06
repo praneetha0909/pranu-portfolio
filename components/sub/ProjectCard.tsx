@@ -5,13 +5,14 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface Props {
-  src: string;
-  title: string;
-  description: string;
-  fullDetails: string;
+  src?: string;  // ✅ Making props optional
+  title?: string;
+  description?: string;
+  onClick?: () => void;
 }
 
-const ProjectCard = ({ src, title, description, fullDetails }: Props) => {
+const ProjectCard = ({ src = "", title = "", description = "", onClick }: Props) => { 
+  
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
