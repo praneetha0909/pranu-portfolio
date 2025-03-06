@@ -48,7 +48,7 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          I&apos;m a Software developer with expertise in backend, AI, and cloud solutions, optimizing systems with Java, Python, React, and CI/CD
+          I&apos;m a Software developer with expertise in backend, AI, and cloud solutions, optimizing systems with Java, Python, React, and CI/CD.
         </motion.p>
         <motion.a
           onClick={handleHireMeClick}
