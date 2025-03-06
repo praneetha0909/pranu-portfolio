@@ -8,7 +8,7 @@ interface Props {
   onClick?: () => void; // ✅ Added onClick prop
 }
 
-const ProjectCard = ({ src, title, description, onClick }: Props) => {
+const Projects = () => {  // ✅ No props needed here
   return (
     <div
       className="w-[300px] h-[250px] flex flex-col items-center bg-[#1A1A2E] rounded-lg shadow-lg border border-[#5807f7] cursor-pointer transition-all duration-300 hover:shadow-xl hover:scale-105"
