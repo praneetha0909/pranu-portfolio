@@ -31,7 +31,7 @@ const skillGroups = [
       { name: "Node.js", level: "Advanced" },
       { name: "Express.js", level: "Advanced" },
       { name: "React.js", level: "Advanced" },
-      { name: "Plate.js", level: " Beginner" },
+      { name: "Plate.js", level: "Beginner" },
       { name: "Next.js", level: "Intermediate" },
       { name: "Tailwind CSS", level: "Advanced" },
       { name: "GraphQL", level: "Intermediate" },
@@ -73,7 +73,7 @@ const skillGroups = [
   },
   {
     title: "Full Stake & Backend Development",
-    color: "from-purple-400 to-purple-600",
+    color: "from-coral-400 to-peach-400",
     skills: [
       { name: "API Design", level: "Advanced" },
       { name: "JSP", level: "Advanced" },
@@ -151,7 +151,7 @@ const Skills = () => {
 
       {/* Additional Skills Section */}
       <section
-        id="additional-skills"
+        id=""
         className="flex flex-col items-center justify-center gap-10 px-4 sm:px-6 py-20 mx-auto max-w-7xl"
       >
         <motion.h2
