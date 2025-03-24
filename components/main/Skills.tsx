@@ -162,9 +162,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-2 text-center"
-        >
-          
-        </motion.h2>
+        ></motion.h2>
 
         <div className="text-white bg-white/10 px-6 py-2 rounded-full mb-8 text-sm shadow-md">
           {skillGroups.reduce((acc, group) => acc + group.skills.length, 0)}+ Skills
@@ -179,7 +177,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               viewport={{ once: true }}
-              className={rounded-xl p-6 sm:p-8 bg-gradient-to-br ${group.color} text-white shadow-lg border border-white/10 relative overflow-hidden}
+              className={`rounded-xl p-6 sm:p-8 bg-gradient-to-br ${group.color} text-white shadow-lg border border-white/10 relative overflow-hidden`}
             >
               {/* Sand/Grainy Overlay */}
               <div className="absolute inset-0 bg-[url('/gain..jpeg')] opacity-50 z-0 pointer-events-none mix-blend-soft-light"></div>
@@ -194,7 +192,7 @@ const Skills = () => {
                   >
                     {skill.name}
                     <span
-                      className={text-[10px] font-semibold text-black px-2 py-0.5 rounded-full ${levelColors[skill.level]}}
+                      className={`text-[10px] font-semibold text-black px-2 py-0.5 rounded-full ${levelColors[skill.level]}`}
                     >
                       {skill.level}
                     </span>
