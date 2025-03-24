@@ -69,11 +69,13 @@ const skillGroups = [
       { name: "TensorFlow", level: "Advanced" },
       { name: "Spark", level: "Advanced" },
       { name: "Hadoop", level: "Advanced" },
+      { name: "Tableau", level: "Advanced" },
+      { name: "PowerBI", level: "Advanced" },
     ],
   },
   {
     title: "Full Stake & Backend Development",
-    color: "from-coral-400 to-peach-400",
+    color: "from-green-300 to-cyan-400",
     skills: [
       { name: "API Design", level: "Advanced" },
       { name: "JSP", level: "Advanced" },
@@ -151,7 +153,7 @@ const Skills = () => {
 
       {/* Additional Skills Section */}
       <section
-        id=""
+        id="additional skills"
         className="flex flex-col items-center justify-center gap-10 px-4 sm:px-6 py-20 mx-auto max-w-7xl"
       >
         <motion.h2
@@ -161,7 +163,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600 mb-2 text-center"
         >
-          Additional Skills
+          
         </motion.h2>
 
         <div className="text-white bg-white/10 px-6 py-2 rounded-full mb-8 text-sm shadow-md">
