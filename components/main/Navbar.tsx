@@ -1,4 +1,4 @@
-"use client";  // This tells Next.js that this is a client component
+"use client"; // This tells Next.js that this is a client component
 
 import { useState } from "react";
 import Image from "next/image";
@@ -9,15 +9,17 @@ const Navbar = () => {
   return (
     <nav className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#d19932]/50 bg-[#03001417] backdrop-blur-md z-50 px-5 md:px-10">
       <div className="w-full h-full flex items-center justify-between px-4 md:px-10">
-        {/* Logo */}
+        {/* Logo with Gold Border */}
         <a href="#about-me" className="flex items-center">
-          <Image
-            src="/logo.png"
-            alt="logo"
-            width={50}
-            height={50}
-            className="cursor-pointer hover:animate-slowspin"
-          />
+          <div className="border-2 border-[#d4af37] rounded-full p-[2px]">
+            <Image
+              src="/logo.png"
+              alt="logo"
+              width={50}
+              height={50}
+              className="cursor-pointer hover:animate-slowspin rounded-full"
+            />
+          </div>
           <span className="cursive text-[16px] md:text-[20px] text-gray-300 pl-2">
             Praneetha Mukkamala
           </span>
@@ -45,7 +47,7 @@ const Navbar = () => {
             <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
           </a>
           <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
-            <Image src="/twitter.png" alt="Discord" width={30} height={30} />
+            <Image src="/twitter.png" alt="X" width={30} height={30} />
           </a>
         </div>
 
@@ -78,6 +80,7 @@ const Navbar = () => {
           <a href="#projects" className="cursor-pointer" onClick={() => setMenuOpen(false)}>
             Career
           </a>
+
           {/* Mobile Social Links */}
           <div className="flex gap-5 mt-3">
             <a href="https://www.linkedin.com/in/praneethamss/" target="_blank" rel="noopener noreferrer">
@@ -87,7 +90,7 @@ const Navbar = () => {
               <Image src="/gitwhite.png" alt="GitHub" width={24} height={24} />
             </a>
             <a href="https://x.com/msspraneetha?s=21" target="_blank" rel="noopener noreferrer">
-              <Image src="/twitter.png" alt="Discord" width={24} height={24} />
+              <Image src="/twitter.png" alt="X" width={24} height={24} />
             </a>
           </div>
         </div>
