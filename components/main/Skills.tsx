@@ -67,6 +67,7 @@ const skillGroups = [
       { name: "OpenAI API", level: "Advanced" },
       { name: "PyTorch", level: "Advanced" },
       { name: "TensorFlow", level: "Advanced" },
+      { name: "Scikit-learn", level: "Advanced" },
       { name: "Spark", level: "Advanced" },
       { name: "Hadoop", level: "Advanced" },
       { name: "Tableau", level: "Advanced" },
