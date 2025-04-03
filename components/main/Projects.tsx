@@ -39,7 +39,7 @@ const Projects = () => {
         <ProjectCard
           src="/infosys.png"
           title="Infosys"
-          description={`Software Engineer (March 2021 - November 2022)`}
+          description={`Senior Systems Engineer (March 2021 - November 2022)`}
         />
       </div>
 
