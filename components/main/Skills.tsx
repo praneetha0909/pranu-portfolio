@@ -60,6 +60,19 @@ const skillGroups = [
     ],
   },
   {
+  title: "SAP Technologies",
+  color: "from-yellow-400 to-orange-300",
+  skills: [
+    { name: "SAP S/4 HANA", level: "Advanced" },
+    { name: "SAP Fiori", level: "Intermediate" },
+    { name: "SAPUI5", level: "Intermediate" },
+    { name: "SAP MM", level: "Advanced" },
+    { name: "SAP PP", level: "Advanced" },
+    { name: "SAP QM", level: "Advanced" },
+    { name: "SAP SD", level: "Intermediate" },
+  ],
+ },
+  {
     title: "Data Science & AI",
     color: "from-purple-400 to-purple-600",
     skills: [
