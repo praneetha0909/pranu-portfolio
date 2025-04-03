@@ -61,11 +61,11 @@ const skillGroups = [
   },
   {
   title: "SAP Technologies",
-  color: "from-yellow-400 to-orange-300",
+  color: "from-blue-500 to-indigo-400",
   skills: [
     { name: "SAP S/4 HANA", level: "Advanced" },
-    { name: "SAP Fiori", level: "Intermediate" },
-    { name: "SAPUI5", level: "Intermediate" },
+    { name: "SAP Fiori", level: "Advanced" },
+    { name: "SAPUI5", level: "Advanced" },
     { name: "SAP MM", level: "Advanced" },
     { name: "SAP PP", level: "Advanced" },
     { name: "SAP QM", level: "Advanced" },
