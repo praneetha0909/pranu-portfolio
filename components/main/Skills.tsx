@@ -88,7 +88,7 @@ const skillGroups = [
     ],
   },
   {
-    title: "Full Stake & Backend Development",
+    title: "Full Stack & Backend Development",
     color: "from-green-300 to-cyan-400",
     skills: [
       { name: "API Design", level: "Advanced" },
