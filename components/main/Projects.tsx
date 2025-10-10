@@ -10,7 +10,7 @@ const Projects = () => {
       </h1>
       <div className="flex justify-center items-center gap-12 flex-wrap">
         <ProjectCard
-          src="/uta.png"
+          src="/uta2.png"
           title="University of Texas at Arlington"
           description={`Master's in Computer Science (January 2023 - December 2024)`}
         />
@@ -28,13 +28,18 @@ const Projects = () => {
         <ProjectCard
           src="/reality.png"
           title="Reality AI Lab"
-          description={`Software Developer (January 2025 - Present)`}
+          description={`Data Engineer (AI & Machine Learning Focus) (January 2025 - Present)`}
         />
         <ProjectCard
           src="/tom.jpg"
           title="Tomorrows AI"
-          description={`Software Developer (September 2024 - December 2024)`}
+          description={`Business Intelligence Analyst (Gen AI Focus) (September 2024 - December 2024)`}
 
+        />
+        <ProjectCard
+          src="/uta2.png"
+          title="Infosys"
+          description={`Senior Systems Engineer (March 2021 - November 2022)`}
         />
         <ProjectCard
           src="/infosys.png"
