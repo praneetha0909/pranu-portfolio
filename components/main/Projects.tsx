@@ -16,6 +16,7 @@ interface CardProps {
   badge?: string; // optional small badge (e.g., "2025", "In Progress")
   skills?: string[]; // chips under description
   github?: string;   // GitHub repo link (used by bottom button only)
+  size?: "sm" | "lg"; // <— NEW: controls tile size
 }
 
 const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
@@ -48,6 +49,20 @@ const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
   );
 };
 
+// Size presets (only affects Projects when size="lg")
+const CARD_SIZES = {
+  sm: {
+    cardHeight: "h-[320px]",
+    imgHeight: "h-[120px] sm:h-[130px] lg:h-[140px]",
+    imgPadding: "p-2",
+  },
+  lg: {
+    cardHeight: "h-[420px]",
+    imgHeight: "h-[220px] sm:h-[230px] lg:h-[240px]",
+    imgPadding: "p-1",
+  },
+} as const;
+
 // ---------- INLINE CARD USED ON THIS PAGE ----------
 const ProjectCard: React.FC<CardProps> = ({
   src,
@@ -57,21 +72,26 @@ const ProjectCard: React.FC<CardProps> = ({
   badge,
   skills,
   github,
+  size = "sm", // default: original size
 }) => {
+  const S = CARD_SIZES[size];
+
   const CardBody = (
     <motion.div
       whileHover={{ y: -6, rotate: 0.1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group w-[300px] h-[420px] flex flex-col items-center rounded-2xl shadow-lg border"
+      className={`group w-[300px] ${S.cardHeight} flex flex-col items-center rounded-2xl shadow-lg border`}
       style={{ borderColor: GOLD, background: "#11131A" }}
     >
-      {/* BIGGER IMAGE */}
-      <div className="relative w-full h-[220px] sm:h-[230px] lg:h-[240px] overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0">
+      {/* Image (size varies by 'size' prop) */}
+      <div
+        className={`relative w-full ${S.imgHeight} overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0`}
+      >
         <Image
           src={src}
           alt={title}
           fill
-          className="object-contain p-1 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
+          className={`object-contain ${S.imgPadding} transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none`}
           sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
@@ -241,7 +261,7 @@ const Projects: React.FC = () => {
 
   return (
     <div id="projects" className="flex flex-col items-center justify-center py-20">
-      {/* Education */}
+      {/* Education — keep original (sm) */}
       <SectionTitle>Education</SectionTitle>
       <motion.div
         variants={sectionVariants}
@@ -252,12 +272,12 @@ const Projects: React.FC = () => {
       >
         {education.map((c, i) => (
           <motion.div variants={item} key={`edu-${i}`}>
-            <ProjectCard {...c} />
+            <ProjectCard {...c} size="sm" />
           </motion.div>
         ))}
       </motion.div>
 
-      {/* Experience */}
+      {/* Experience — keep original (sm) */}
       <SectionTitle size="lg">Experience</SectionTitle>
       <motion.div
         variants={sectionVariants}
@@ -268,12 +288,12 @@ const Projects: React.FC = () => {
       >
         {experience.map((c, i) => (
           <motion.div variants={item} key={`exp-${i}`}>
-            <ProjectCard {...c} />
+            <ProjectCard {...c} size="sm" />
           </motion.div>
         ))}
       </motion.div>
 
-      {/* Projects */}
+      {/* Projects — larger (lg) */}
       <SectionTitle>Projects</SectionTitle>
       <motion.div
         variants={sectionVariants}
@@ -284,7 +304,7 @@ const Projects: React.FC = () => {
       >
         {projects.map((p, i) => (
           <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
-            <ProjectCard {...p} />
+            <ProjectCard {...p} size="lg" />
 
             {/* Github button (pill, black bg, medium size) */}
             {p.github && (
@@ -293,13 +313,10 @@ const Projects: React.FC = () => {
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={(e) => {
-                  // Defensive: ensure a new tab opens even if some parent intercepts the click
                   try {
                     e.stopPropagation();
                     window.open(p.github as string, "_blank", "noopener,noreferrer");
-                  } catch {
-                    /* no-op */
-                  }
+                  } catch { /* no-op */ }
                 }}
                 className="pointer-events-auto relative z-20 mt-3 inline-flex items-center
                            rounded-full border px-4 py-2 text-sm font-medium
