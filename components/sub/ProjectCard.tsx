@@ -5,9 +5,9 @@ import Image from "next/image";
 import React, { ReactNode } from "react";
 
 export interface Props {
-  src: string | string[];           // ✅ required
-  title: string;                    // ✅ required
-  description: ReactNode;           // ✅ required
+  src: string | string[];
+  title: string;
+  description: ReactNode;
   skills?: string[];
   containerClassName?: string;
   imageHeightClass?: string;
