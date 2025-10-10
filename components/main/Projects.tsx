@@ -27,24 +27,24 @@ const Projects = () => {
       <div className="flex justify-center items-center gap-12 flex-wrap">
         <ProjectCard
           src="/reality.png"
-          title="Reality AI Lab"
-          description={`Data Engineer (AI & Machine Learning Focus) (January 2025 - Present)`}
+          title="Data Engineer (AI & Machine Learning Focus)"
+          description={`Reality AI Lab (January 2025 - Present)`}
         />
         <ProjectCard
           src="/tom.jpg"
-          title="Tomorrows AI"
-          description={`Business Intelligence Analyst (Gen AI Focus) (September 2024 - December 2024)`}
+          title="Business Intelligence Analyst (Gen AI Focus)"
+          description={`Tommorrows AI (September 2024 - December 2024)`}
 
         />
         <ProjectCard
           src="/uta2.png"
-          title="University of Texas at Arlington"
-          description={`Data Reporting Analyst (August 2023 - December 2024)`}
+          title="Data Reporting Analyst"
+          description={`University of Texas at Arlington (August 2023 - December 2024)`}
         />
         <ProjectCard
           src="/infosys.png"
-          title="Infosys"
-          description={`SAP Data & Systems Analyst(March 2021 - November 2022)`}
+          title="SAP Data & Systems Analyst"
+          description={`Infosys (March 2021 - November 2022)`}
         />
       </div>
 
