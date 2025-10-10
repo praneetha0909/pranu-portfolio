@@ -27,7 +27,7 @@ const HeroContent = () => {
         >
           <SparklesIcon className="text-[#d19932] mr-[10px] h-5 w-5" />
           <h1 className="Welcome-text text-[13px]">
-            Software Development Engineer
+            Data Engineer
           </h1>
         </motion.div>
 
@@ -40,7 +40,7 @@ const HeroContent = () => {
               {" "}
               Praneetha Mukkamala{" "}
             </span>
-           Software Engineer 
+           Data Engineer 
           </span>
         </motion.div>
 
@@ -48,12 +48,12 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px]"
         >
-          I&apos;m a Software developer with expertise in backend, AI, and cloud solutions, optimizing systems with Java, Python, React, and CI/CD.
+          I design and build SQL/Python ELT pipelines and dimensional models on AWS/GCP, turning business questions into trusted datasets and clear dashboards.
         </motion.p>
         <motion.a
           onClick={handleHireMeClick}
           variants={slideInFromRight(1)}
-          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 cursive text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
+          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
         >
           Resume
         </motion.a>
