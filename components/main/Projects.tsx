@@ -48,6 +48,7 @@ const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
   );
 };
 
+// ---------- INLINE CARD USED ON THIS PAGE ----------
 const ProjectCard: React.FC<CardProps> = ({
   src,
   title,
@@ -55,26 +56,27 @@ const ProjectCard: React.FC<CardProps> = ({
   href,
   badge,
   skills,
-  github, // kept in props, but not rendered in the top-right anymore
+  github,
 }) => {
   const CardBody = (
     <motion.div
       whileHover={{ y: -6, rotate: 0.1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group w-[300px] h-[320px] flex flex-col items-center rounded-2xl shadow-lg border"
+      className="group w-[300px] h-[420px] flex flex-col items-center rounded-2xl shadow-lg border"
       style={{ borderColor: GOLD, background: "#11131A" }}
     >
-      {/* Image */}
-      <div className="relative w-full h-[120px] overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0">
+      {/* BIGGER IMAGE */}
+      <div className="relative w-full h-[220px] sm:h-[230px] lg:h-[240px] overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0">
         <Image
           src={src}
           alt={title}
           fill
-          className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
-          sizes="(max-width: 900px) 500px, 500px"
+          className="object-contain p-1 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
+          sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
-        {/* Badge (left) */}
+
+        {/* Optional badge (top-left) */}
         {badge && (
           <span
             className="absolute top-2 left-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
@@ -83,14 +85,13 @@ const ProjectCard: React.FC<CardProps> = ({
             {badge}
           </span>
         )}
-        {/* Removed the top-right GitHub pill */}
+        {/* Top-right GitHub pill intentionally removed */}
       </div>
 
       {/* Text */}
       <div className="w-full p-4 text-center">
         <h3 className="text-base font-semibold text-white line-clamp-1">{title}</h3>
         <p className="mt-1 text-gray-400 text-xs leading-snug line-clamp-2">{description}</p>
-        {/* Skills */}
         <SkillChips skills={skills} />
       </div>
     </motion.div>
@@ -110,7 +111,7 @@ const ProjectCard: React.FC<CardProps> = ({
   );
 };
 
-// ---- Page Section
+// ---- Page Section animation bits
 const sectionVariants = {
   hidden: { opacity: 0, y: 12 },
   show: {
@@ -184,7 +185,7 @@ const Projects: React.FC = () => {
     },
   ];
 
-  // ---- SIX projects
+  // ---- SIX projects (keep words unchanged)
   const projects = [
     {
       src: "/Palantir.jpeg",
@@ -296,7 +297,9 @@ const Projects: React.FC = () => {
                   try {
                     e.stopPropagation();
                     window.open(p.github as string, "_blank", "noopener,noreferrer");
-                  } catch {/* no-op */}
+                  } catch {
+                    /* no-op */
+                  }
                 }}
                 className="pointer-events-auto relative z-20 mt-3 inline-flex items-center
                            rounded-full border px-4 py-2 text-sm font-medium
