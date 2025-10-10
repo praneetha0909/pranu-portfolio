@@ -1,62 +1,61 @@
-import Image from "next/image";
-import React from "react";
-
-interface Props {
-  src: string;
-  title: string;
-  description: string;
-  github?: string;   // optional: shows a button if provided
-  badge?: string;    // optional: status chip (unused here but kept)
-}
-
-const ProjectCard = ({ src, title, description, github, badge }: Props) => {
-  return (
-    <div className="w-[500px] h-[350px] flex flex-col items-center bg-[#050505] rounded-lg shadow-lg border border-[#E4B860]">
-      {/* Image area (unchanged formatting) */}
-      <div className="relative w-full h-[120px] overflow-hidden rounded-t-lg bg-gradient-to-b from-black/10 to-black/0">
+const ProjectCard: React.FC<CardProps> = ({
+  src,
+  title,
+  description,
+  href,
+  badge,
+  skills,
+  github,
+}) => {
+  const CardBody = (
+    <motion.div
+      whileHover={{ y: -6, rotate: 0.1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="group w-[300px] h-[360px] flex flex-col items-center rounded-2xl shadow-lg border"
+      style={{ borderColor: GOLD, background: "#11131A" }}
+    >
+      {/* Image */}
+      <div className="relative w-full h-[160px] sm:h-[170px] lg:h-[180px] overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0">
         <Image
           src={src}
           alt={title}
           fill
-          className="object-contain p-2 pointer-events-none rounded-t-lg"
-          sizes="(max-width: 768px) 500px, 500px"
+          className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
+          sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
-
+        {/* Badge (left) */}
         {badge && (
           <span
             className="absolute top-2 left-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
-            style={{ borderColor: "#E4B860", color: "#E4B860", background: "#0b0d12" }}
+            style={{ borderColor: GOLD, color: GOLD, background: "#0b0d12" }}
           >
             {badge}
           </span>
         )}
+        {/* removed top-right github pill */}
       </div>
 
-      {/* Text Content (unchanged wording) */}
+      {/* Text */}
       <div className="w-full p-4 text-center">
-        <h1 className="text-lg font-semibold text-white">{title}</h1>
-        <p className="mt-1 text-gray-400 text-sm">{description}</p>
-
-        {/* Github button (bottom of tile) */}
-        {github && (
-          <div className="mt-3 flex justify-center">
-            <a
-              href={github}
-              target="_blank"
-              rel="noreferrer noopener"
-              role="button"
-              className="inline-flex items-center rounded-full border px-3 py-1 text-[12px] leading-none text-white/90 hover:text-white transition cursor-pointer"
-              style={{ borderColor: "#E4B860", background: "#0b0d12" }}
-              aria-label={`${title} GitHub (opens in new tab)`}
-            >
-              Github
-            </a>
-          </div>
-        )}
+        <h3 className="text-base font-semibold text-white line-clamp-1">{title}</h3>
+        <p className="mt-1 text-gray-400 text-xs leading-snug line-clamp-2">{description}</p>
+        {/* Skills */}
+        <SkillChips skills={skills} />
       </div>
-    </div>
+    </motion.div>
+  );
+
+  return href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={`${title} (opens in new tab)`}
+    >
+      {CardBody}
+    </a>
+  ) : (
+    CardBody
   );
 };
-
-export default ProjectCard;
