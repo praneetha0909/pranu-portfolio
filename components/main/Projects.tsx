@@ -83,7 +83,7 @@ const ProjectCard: React.FC<CardProps> = ({
             {badge}
           </span>
         )}
-        {/* GitHub pill (right) */}
+        {/* (Optional) in-tile Github pill stays as-is if you set github on the card */}
         {github && (
           <a
             href={github}
@@ -297,16 +297,25 @@ const Projects: React.FC = () => {
           <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
             <ProjectCard {...p} />
 
-            {/* Github button (styled like Resume) */}
+            {/* Github button (robust click) */}
             {p.github && (
-              <motion.a
+              <a
                 href={p.github}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="mt-3 py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg hover:scale-105 transition-transform duration-300"
+                onClick={(e) => {
+                  // defensive: ensure a new tab opens even if some parent intercepts the click
+                  try {
+                    e.stopPropagation();
+                    window.open(p.github as string, "_blank", "noopener,noreferrer");
+                  } catch {
+                    /* no-op */
+                  }
+                }}
+                className="pointer-events-auto relative z-20 mt-3 py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg hover:scale-105 transition-transform duration-300"
               >
                 Github
-              </motion.a>
+              </a>
             )}
           </motion.div>
         ))}
