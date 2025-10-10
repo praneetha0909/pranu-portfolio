@@ -38,13 +38,13 @@ const Projects = () => {
         />
         <ProjectCard
           src="/uta2.png"
-          title="Infosys"
-          description={`Senior Systems Engineer (March 2021 - November 2022)`}
+          title="University of Texas at Arlington"
+          description={`Data Reporting Analyst (August 2023 - December 2024)`}
         />
         <ProjectCard
           src="/infosys.png"
           title="Infosys"
-          description={`Senior Systems Engineer (March 2021 - November 2022)`}
+          description={`SAP Data & Systems Analyst(March 2021 - November 2022)`}
         />
       </div>
 
