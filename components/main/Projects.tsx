@@ -143,11 +143,29 @@ const Projects: React.FC = () => {
 
   const projects = [
     {
-      src: "/Port1.jpeg",
+      src: "/Palantir.jpeg",
+      title: "CRM Analytics Dashboard",
+      description: "Built a Palantir Foundry CRM dashboard: cleaned Companies/People, modeled objects, and shipped a filterable CRUD UI.",
+      skills: ["Palantir Foundry", "SQL", "Python", "ETL","AWS REDSHIFT],
+    },
+    {
+      src: "/Job_comp.jpeg",
       title: "Job Compatibility Checker",
       description:
         "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
       skills: ["React", "Next.js", "Python", "NLP", "OpenAI", "Tailwind"],
+    },
+    {
+      src: "/dashboard.jpeg",
+      title: "US Employment Trends",
+      description: "Created a Tableau dashboard analyzing 50+ state-level labor metrics. Improved trend identification speed by 30% and supported policy decision-making.",
+      skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
+    },
+    {
+      src: "",
+      title: "IMDb Genre & Talent Ratings Analytics (SQL)",
+      description: "Produced year-over-year genre averages and highest-average lead actors per year from IMDb datasets using normalized joins, aggregation, and deterministic filtering for complete annual coverage.",
+      skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
     },
     {
       src: "/Port2.jpeg",
@@ -159,7 +177,7 @@ const Projects: React.FC = () => {
       src: "/Port3.jpeg",
       title: "Voice‑Based Chatbot",
       description: "Voice feedback analysis with ChatGPT integration and streaming responses.",
-      skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming"],
+      skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming","Open AI API"],
     },
   ];
 
