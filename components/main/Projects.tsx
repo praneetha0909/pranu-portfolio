@@ -1,11 +1,128 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import ProjectCard from "../sub/ProjectCard";  // <-- IMPORT this; do not redefine
 
-const GOLD = "#E4B860";
+// ---- Design tokens
+const GOLD = "#E4B860"; // matches your tile border gold
 
+// ---- Reusable ProjectCard
+interface CardProps {
+  src: string;
+  title: string;
+  description: string;
+  href?: string; // optional link to details/demo
+  badge?: string; // optional small badge (e.g., "2025", "In Progress")
+  skills?: string[]; // chips under description
+  github?: string;   // GitHub repo link (shows as pill top-right)
+}
+
+const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
+  if (!skills || skills.length === 0) return null;
+  const max = 6; // show up to 6, then "+N"
+  const shown = skills.slice(0, max);
+  const extra = skills.length - shown.length;
+
+  return (
+    <div className="mt-3 flex flex-wrap justify-center gap-2">
+      {shown.map((s, i) => (
+        <span
+          key={`${s}-${i}`}
+          className="rounded-full border px-2 py-1 text-[10px] leading-none tracking-wide text-white/90"
+          style={{ borderColor: GOLD, background: "#0b0d12" }}
+        >
+          {s}
+        </span>
+      ))}
+      {extra > 0 && (
+        <span
+          className="rounded-full border px-2 py-1 text-[10px] leading-none tracking-wide text-white/70"
+          style={{ borderColor: GOLD, background: "#0b0d12" }}
+          aria-label={`and ${extra} more skills`}
+        >
+          +{extra}
+        </span>
+      )}
+    </div>
+  );
+};
+
+const ProjectCard: React.FC<CardProps> = ({
+  src,
+  title,
+  description,
+  href,
+  badge,
+  skills,
+  github,
+}) => {
+  const CardBody = (
+    <motion.div
+      whileHover={{ y: -6, rotate: 0.1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      className="group w-[300px] h-[320px] flex flex-col items-center rounded-2xl shadow-lg border"
+      style={{ borderColor: GOLD, background: "#11131A" }}
+    >
+      {/* Image */}
+      <div className="relative w-full h-[120px] overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0">
+        <Image
+          src={src}
+          alt={title}
+          fill
+          className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
+          sizes="(max-width: 768px) 300px, 300px"
+          priority={false}
+        />
+        {/* Badge (left) */}
+        {badge && (
+          <span
+            className="absolute top-2 left-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
+            style={{ borderColor: GOLD, color: GOLD, background: "#0b0d12" }}
+          >
+            {badge}
+          </span>
+        )}
+        {/* GitHub pill (right) */}
+        {github && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
+            style={{ borderColor: GOLD, background: "#0b0d12" }}
+            aria-label={`${title} GitHub (opens in new tab)`}
+          >
+            Github
+          </a>
+        )}
+      </div>
+
+      {/* Text */}
+      <div className="w-full p-4 text-center">
+        <h3 className="text-base font-semibold text-white line-clamp-1">{title}</h3>
+        <p className="mt-1 text-gray-400 text-xs leading-snug line-clamp-2">{description}</p>
+        {/* Skills */}
+        <SkillChips skills={skills} />
+      </div>
+    </motion.div>
+  );
+
+  return href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={`${title} (opens in new tab)`}
+    >
+      {CardBody}
+    </a>
+  ) : (
+    CardBody
+  );
+};
+
+// ---- Page Section
 const sectionVariants = {
   hidden: { opacity: 0, y: 12 },
   show: {
@@ -79,7 +196,7 @@ const Projects: React.FC = () => {
     },
   ];
 
-  // 6 projects, each with github (pill shows bottom-center on the image)
+  // ---- SIX projects
   const projects = [
     {
       src: "/Palantir.jpeg",
@@ -177,8 +294,20 @@ const Projects: React.FC = () => {
         className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
       >
         {projects.map((p, i) => (
-          <motion.div variants={item} key={`proj-${i}`}>
+          <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
             <ProjectCard {...p} />
+
+            {/* Github button (styled like Resume) */}
+            {p.github && (
+              <motion.a
+                href={p.github}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="mt-3 py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg hover:scale-105 transition-transform duration-300"
+              >
+                Github
+              </motion.a>
+            )}
           </motion.div>
         ))}
       </motion.div>
