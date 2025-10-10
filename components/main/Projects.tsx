@@ -71,7 +71,7 @@ const ProjectCard: React.FC<CardProps> = ({
           alt={title}
           fill
           className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
-          sizes="(max-width: 768px) 300px, 300px"
+          sizes="(max-width: 900px) 500px, 500px"
           priority={false}
         />
         {/* Badge (left) */}
