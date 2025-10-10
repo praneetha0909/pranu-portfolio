@@ -89,7 +89,7 @@ const ProjectCard: React.FC<CardProps> = ({
             href={github}
             target="_blank"
             rel="noreferrer noopener"
-            className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
+            className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
             style={{ borderColor: GOLD, background: "#0b0d12" }}
             aria-label={`${title} GitHub (opens in new tab)`}
           >
@@ -154,17 +154,9 @@ const SectionTitle: React.FC<{ children: React.ReactNode; size?: "lg" | "xl" }> 
 
 const Projects: React.FC = () => {
   const education = [
-    {
-      src: "/uta2.png",
-      title: "University of Texas at Arlington",
-      description: "Master's in Computer Science (Jan 2023 – Dec 2024)",
-    },
-    {
-      src: "/vignan.png",
-      title: "Vignan Institute of Technology & Science",
-      description: "Bachelor's in Computer Science (Aug 2016 – Sep 2020)",
-    },
-  ];
+   { src: "/uta2.png", title: "Master's in Computer Science",
+    description: "University of Texas at Arlington (Jan 2023 – Dec 2024)",
+    skills: ["Database Systems", "AI/ML", "Data Mining", "Cloud Computing & Big Data "] }, { src: "/JNTUH.jpeg", title: "Jawaharlal Nehru Technological University Hyderabad", description: "Bachelor's in Computer Science (Aug 2016 – Sep 2020)", skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"] }, ];
 
   const experience = [
     {
@@ -202,7 +194,7 @@ const Projects: React.FC = () => {
       description:
         "Built a Palantir Foundry CRM dashboard: cleaned Companies/People, modeled objects, and shipped a filterable CRUD UI.",
       skills: ["Palantir Foundry", "SQL", "Python", "ETL", "AWS Redshift"],
-      github: "https://github.com/youruser/crm-foundry-dashboard",
+      github: "https://github.com/praneetha0909/CRM-Dashboard",
     },
     {
       src: "/Job_comp.jpeg",
@@ -210,7 +202,7 @@ const Projects: React.FC = () => {
       description:
         "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
       skills: ["React", "Next.js", "Python", "NLP", "OpenAI", "Tailwind"],
-      github: "https://github.com/youruser/job-compatibility",
+      github: "https://github.com/praneetha0909/job-compatibility-checker",
     },
     {
       src: "/dashboard.jpeg",
@@ -218,7 +210,7 @@ const Projects: React.FC = () => {
       description:
         "Created a Tableau dashboard analyzing 50+ state-level labor metrics. Improved trend identification speed by 30% and supported policy decisions.",
       skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
-      github: "https://github.com/youruser/us-employment-trends", // if public; else remove github field
+      github: "https://github.com/praneetha0909/U.S.-Employment-Unemployment-Trends-A-Tableau-Dashboard", // if public; else remove github field
     },
     {
       src: "/SQL4.jpeg",
@@ -226,7 +218,7 @@ const Projects: React.FC = () => {
       description:
         "Produced YoY genre averages and highest‑average lead actors per year from IMDb datasets using joins, aggregation, and deterministic filtering.",
       skills: ["Advanced SQL", "Data Modeling & Quality", "Query Optimization"],
-      github: "https://github.com/youruser/imdb-genre-analytics",
+      github: "https://github.com/praneetha0909/IMDB-database",
     },
     {
       src: "/Port2.jpeg",
@@ -234,7 +226,7 @@ const Projects: React.FC = () => {
       description:
         "Python chatbot (PandasAI) over 250k+ rows with ~95% precision on factual queries.",
       skills: ["Python", "Pandas", "PandasAI", "DataFrames", "Evaluation"],
-      github: "https://github.com/youruser/query-genie",
+      github: "https://github.com/praneetha0909/Data-Mining/blob/main/Mukkamala_2894_Mulkalapally_8345_Munduru_6693_python.ipynb",
     },
     {
       src: "/Port3.jpeg",
@@ -242,7 +234,7 @@ const Projects: React.FC = () => {
       description:
         "Voice feedback analysis with ChatGPT integration and streaming responses.",
       skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming", "OpenAI API"],
-      github: "https://github.com/youruser/voice-chatbot",
+      github: "https://github.com/praneetha0909/ConversAI-VoiceBot-Assistant",
     },
   ];
 
