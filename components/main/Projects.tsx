@@ -12,10 +12,10 @@ interface CardProps {
   src: string;
   title: string;
   description: string;
-  href?: string;     // optional link to details/demo
-  badge?: string;    // optional small badge (e.g., "2025", "In Progress")
+  href?: string; // optional link to details/demo
+  badge?: string; // optional small badge (e.g., "2025", "In Progress")
   skills?: string[]; // chips under description
-  github?: string;   // NEW: GitHub link shown as a pill
+  github?: string;   // GitHub repo link (shows as pill top-right)
 }
 
 const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
@@ -61,7 +61,7 @@ const ProjectCard: React.FC<CardProps> = ({
     <motion.div
       whileHover={{ y: -6, rotate: 0.1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group w-[300px] h-[330px] flex flex-col items-center rounded-2xl shadow-lg border"
+      className="group w-[300px] h-[320px] flex flex-col items-center rounded-2xl shadow-lg border"
       style={{ borderColor: GOLD, background: "#11131A" }}
     >
       {/* Image */}
@@ -74,13 +74,27 @@ const ProjectCard: React.FC<CardProps> = ({
           sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
+        {/* Badge (left) */}
         {badge && (
           <span
-            className="absolute top-2 right-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
+            className="absolute top-2 left-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
             style={{ borderColor: GOLD, color: GOLD, background: "#0b0d12" }}
           >
             {badge}
           </span>
+        )}
+        {/* GitHub pill (right) */}
+        {github && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="absolute top-2 right-2 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
+            style={{ borderColor: GOLD, background: "#0b0d12" }}
+            aria-label={`${title} GitHub (opens in new tab)`}
+          >
+            Github
+          </a>
         )}
       </div>
 
@@ -88,25 +102,8 @@ const ProjectCard: React.FC<CardProps> = ({
       <div className="w-full p-4 text-center">
         <h3 className="text-base font-semibold text-white line-clamp-1">{title}</h3>
         <p className="mt-1 text-gray-400 text-xs leading-snug line-clamp-2">{description}</p>
-
         {/* Skills */}
         <SkillChips skills={skills} />
-
-        {/* Github pill */}
-        {github && (
-          <div className="mt-3 flex justify-center">
-            <a
-              href={github}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-[11px] leading-none text-white/90 hover:text-white transition"
-              style={{ borderColor: GOLD, background: "#0b0d12" }}
-              aria-label={`${title} GitHub (opens in new tab)`}
-            >
-              Github
-            </a>
-          </div>
-        )}
       </div>
     </motion.div>
   );
@@ -197,14 +194,39 @@ const Projects: React.FC = () => {
     },
   ];
 
+  // ---- SIX projects
   const projects = [
     {
-      src: "/Port1.jpeg",
+      src: "/Palantir.jpeg",
+      title: "CRM Analytics Dashboard",
+      description:
+        "Built a Palantir Foundry CRM dashboard: cleaned Companies/People, modeled objects, and shipped a filterable CRUD UI.",
+      skills: ["Palantir Foundry", "SQL", "Python", "ETL", "AWS Redshift"],
+      github: "https://github.com/youruser/crm-foundry-dashboard",
+    },
+    {
+      src: "/Job_comp.jpeg",
       title: "Job Compatibility Checker",
       description:
-        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI-driven improvements.",
+        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
       skills: ["React", "Next.js", "Python", "NLP", "OpenAI", "Tailwind"],
-      github: "https://github.com/youruser/job-compatibility", // <- add your real link
+      github: "https://github.com/youruser/job-compatibility",
+    },
+    {
+      src: "/dashboard.jpeg",
+      title: "US Employment Trends",
+      description:
+        "Created a Tableau dashboard analyzing 50+ state-level labor metrics. Improved trend identification speed by 30% and supported policy decisions.",
+      skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
+      github: "https://github.com/youruser/us-employment-trends", // if public; else remove github field
+    },
+    {
+      src: "/SQL4.jpeg",
+      title: "IMDb Genre & Talent Ratings Analytics (SQL)",
+      description:
+        "Produced YoY genre averages and highest‑average lead actors per year from IMDb datasets using joins, aggregation, and deterministic filtering.",
+      skills: ["Advanced SQL", "Data Modeling & Quality", "Query Optimization"],
+      github: "https://github.com/youruser/imdb-genre-analytics",
     },
     {
       src: "/Port2.jpeg",
@@ -216,10 +238,10 @@ const Projects: React.FC = () => {
     },
     {
       src: "/Port3.jpeg",
-      title: "Voice-Based Chatbot",
+      title: "Voice‑Based Chatbot",
       description:
         "Voice feedback analysis with ChatGPT integration and streaming responses.",
-      skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming"],
+      skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming", "OpenAI API"],
       github: "https://github.com/youruser/voice-chatbot",
     },
   ];
