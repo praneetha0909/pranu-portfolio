@@ -3,7 +3,6 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
-import { Github as GithubIcon } from "lucide-react";
 
 // ---- Design tokens
 const GOLD = "#E4B860"; // matches your tile border gold
@@ -13,16 +12,18 @@ interface CardProps {
   src: string;
   title: string;
   description: string;
-  href?: string; // optional link to details/demo
-  badge?: string; // optional small badge (e.g., "2025", "In Progress")
-  skills?: string[]; // NEW: small chips under description
+  href?: string;     // optional link to details/demo
+  badge?: string;    // optional small badge (e.g., "2025", "In Progress")
+  skills?: string[]; // chips under description
+  github?: string;   // NEW: GitHub link shown as a pill
 }
 
-const SkillChips: React.FC<{ skills?: string[] } > = ({ skills }) => {
+const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
   if (!skills || skills.length === 0) return null;
   const max = 6; // show up to 6, then "+N"
   const shown = skills.slice(0, max);
   const extra = skills.length - shown.length;
+
   return (
     <div className="mt-3 flex flex-wrap justify-center gap-2">
       {shown.map((s, i) => (
@@ -47,12 +48,20 @@ const SkillChips: React.FC<{ skills?: string[] } > = ({ skills }) => {
   );
 };
 
-const ProjectCard: React.FC<CardProps> = ({ src, title, description, href, badge, skills }) => {
+const ProjectCard: React.FC<CardProps> = ({
+  src,
+  title,
+  description,
+  href,
+  badge,
+  skills,
+  github,
+}) => {
   const CardBody = (
     <motion.div
       whileHover={{ y: -6, rotate: 0.1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group w-[300px] h-[290px] flex flex-col items-center rounded-2xl shadow-lg border"
+      className="group w-[300px] h-[330px] flex flex-col items-center rounded-2xl shadow-lg border"
       style={{ borderColor: GOLD, background: "#11131A" }}
     >
       {/* Image */}
@@ -79,14 +88,36 @@ const ProjectCard: React.FC<CardProps> = ({ src, title, description, href, badge
       <div className="w-full p-4 text-center">
         <h3 className="text-base font-semibold text-white line-clamp-1">{title}</h3>
         <p className="mt-1 text-gray-400 text-xs leading-snug line-clamp-2">{description}</p>
+
         {/* Skills */}
         <SkillChips skills={skills} />
+
+        {/* Github pill */}
+        {github && (
+          <div className="mt-3 flex justify-center">
+            <a
+              href={github}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="inline-flex items-center gap-1 rounded-full border px-3 py-1 text-[11px] leading-none text-white/90 hover:text-white transition"
+              style={{ borderColor: GOLD, background: "#0b0d12" }}
+              aria-label={`${title} GitHub (opens in new tab)`}
+            >
+              Github
+            </a>
+          </div>
+        )}
       </div>
     </motion.div>
   );
 
   return href ? (
-    <a href={href} target="_blank" rel="noreferrer noopener" aria-label={`${title} (opens in new tab)`}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={`${title} (opens in new tab)`}
+    >
       {CardBody}
     </a>
   ) : (
@@ -109,7 +140,10 @@ const item = {
   show: { opacity: 1, y: 0 },
 };
 
-const SectionTitle: React.FC<{ children: React.ReactNode; size?: "lg" | "xl" }> = ({ children, size = "xl" }) => (
+const SectionTitle: React.FC<{ children: React.ReactNode; size?: "lg" | "xl" }> = ({
+  children,
+  size = "xl",
+}) => (
   <h2
     className={[
       "font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-700 to-purple-500",
@@ -136,10 +170,31 @@ const Projects: React.FC = () => {
   ];
 
   const experience = [
-    { src: "/reality.png", title: "Data Engineer", description: "Reality AI Lab (Jan 2025 – Present)", badge: "Current", skills: ["Python", "SQL", "Airflow", "AWS", "Docker", "CI/CD"] },
-    { src: "/tom.jpg", title: "Business Intelligence Analyst", description: "Tomorrow's AI (Sep 2024 – Dec 2024)", skills: ["Power BI", "A/B Testing", "Python", "ETL", "KPI Design"] },
-    { src: "/uta2.png", title: "Data Reporting Analyst", description: "University of Texas at Arlington (Aug 2023 – Dec 2024)", skills: ["SQL", "Excel", "Dashboards", "Stakeholder Reports"] },
-    { src: "/infosys.png", title: "SAP Data & Systems Analyst", description: "Infosys (Mar 2021 – Nov 2022)", skills: ["SAP S/4HANA", "ABAP (read)", "HP ALM", "Process Docs"] },
+    {
+      src: "/reality.png",
+      title: "Data Engineer",
+      description: "Reality AI Lab (Jan 2025 – Present)",
+      badge: "Current",
+      skills: ["Python", "SQL", "Airflow", "AWS", "Docker", "CI/CD"],
+    },
+    {
+      src: "/tom.jpg",
+      title: "Business Intelligence Analyst",
+      description: "Tomorrow's AI (Sep 2024 – Dec 2024)",
+      skills: ["Power BI", "A/B Testing", "Python", "ETL", "KPI Design"],
+    },
+    {
+      src: "/uta2.png",
+      title: "Data Reporting Analyst",
+      description: "University of Texas at Arlington (Aug 2023 – Dec 2024)",
+      skills: ["SQL", "Excel", "Dashboards", "Stakeholder Reports"],
+    },
+    {
+      src: "/infosys.png",
+      title: "SAP Data & Systems Analyst",
+      description: "Infosys (Mar 2021 – Nov 2022)",
+      skills: ["SAP S/4HANA", "ABAP (read)", "HP ALM", "Process Docs"],
+    },
   ];
 
   const projects = [
@@ -147,20 +202,25 @@ const Projects: React.FC = () => {
       src: "/Port1.jpeg",
       title: "Job Compatibility Checker",
       description:
-        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
+        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI-driven improvements.",
       skills: ["React", "Next.js", "Python", "NLP", "OpenAI", "Tailwind"],
+      github: "https://github.com/youruser/job-compatibility", // <- add your real link
     },
     {
       src: "/Port2.jpeg",
       title: "Query Genie",
-      description: "Python chatbot (PandasAI) over 250k+ rows with ~95% precision on factual queries.",
+      description:
+        "Python chatbot (PandasAI) over 250k+ rows with ~95% precision on factual queries.",
       skills: ["Python", "Pandas", "PandasAI", "DataFrames", "Evaluation"],
+      github: "https://github.com/youruser/query-genie",
     },
     {
       src: "/Port3.jpeg",
-      title: "Voice‑Based Chatbot",
-      description: "Voice feedback analysis with ChatGPT integration and streaming responses.",
+      title: "Voice-Based Chatbot",
+      description:
+        "Voice feedback analysis with ChatGPT integration and streaming responses.",
       skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming"],
+      github: "https://github.com/youruser/voice-chatbot",
     },
   ];
 
@@ -215,7 +275,12 @@ const Projects: React.FC = () => {
       </motion.div>
 
       {/* subtle divider */}
-      <div className="mt-16 h-px w-2/3" style={{ background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)` }} />
+      <div
+        className="mt-16 h-px w-2/3"
+        style={{
+          background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+        }}
+      />
     </div>
   );
 };
