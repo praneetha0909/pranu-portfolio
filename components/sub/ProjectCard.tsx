@@ -1,41 +1,35 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
-import ProjectCard from "ProjectCard"; // ✅ default import
 
-const items = [
-  { logo: "/reality.png",     title: "Data Engineer (AI & Machine Learning Focus)", subtitle: "Reality AI Lab (January 2025 – Present)" },
-  { logo: "/tomorrowsai.png", title: "Business Intelligence Analyst (GenAI Focus)",  subtitle: "Tomorrow’s AI (Sep 2024 – Dec 2024)" },
-  { logo: "/uta.png",         title: "Data Reporting Analyst",                       subtitle: "University of Texas at Arlington (Aug 2023 – Dec 2024)" },
-  { logo: "/infosys.png",     title: "SAP Data & Systems Analyst",                   subtitle: "Infosys (Mar 2021 – Nov 2022)" },
-];
-
-export default function Experience() {
-  return (
-    <section id="experience" className="py-20">
-      <h2 className="text-center text-[50px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 mb-12">
-        Experience
-      </h2>
-
-      <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 gap-10 place-items-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
-        variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.12 } } }}
-      >
-        {items.map((it) => (
-          <ProjectCard
-            key={it.title}
-            src={uta2.png}                 // ✅ use src
-            title={it.title}
-            description={"subtitle"}     // ✅ use description
-            imageHeightClass="h-[160px]"  // optional: logos fit nicer
-            containerClassName="max-w-[420px]"
-          />
-        ))}
-      </motion.div>
-    </section>
-  );
+interface Props {
+  src: string;
+  title: string;
+  description: string;
 }
+
+const ProjectCard = ({ src, title, description }: Props) => {
+  return (
+    <div className="w-[300px] h-[250px] flex flex-col items-center bg-[#11131A] rounded-lg shadow-lg border border-[#E4B860]">
+      {/* Image */}
+      <div className="relative w-full h-[120px] overflow-hidden rounded-t-lg">
+        <Image
+          src={src}
+          alt={title}
+          fill
+          style={{ objectFit: "contain" }}   {/* replaces deprecated layout/objectFit props */}
+          priority
+        />
+      </div>
+
+      {/* Text */}
+      <div className="w-full p-4 text-center">
+        <h1 className="text-lg font-semibold text-white">{title}</h1>
+        <p className="mt-1 text-gray-400 text-sm">{description}</p>
+      </div>
+    </div>
+  );
+};
+
+export default ProjectCard;
