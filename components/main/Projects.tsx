@@ -146,7 +146,7 @@ const Projects: React.FC = () => {
       src: "/Palantir.jpeg",
       title: "CRM Analytics Dashboard",
       description: "Built a Palantir Foundry CRM dashboard: cleaned Companies/People, modeled objects, and shipped a filterable CRUD UI.",
-      skills: ["Palantir Foundry", "SQL", "Python", "ETL","AWS REDSHIFT],
+      skills: ["Palantir Foundry", "SQL", "Python", "ETL","AWS REDSHIFT"],
     },
     {
       src: "/Job_comp.jpeg",
@@ -161,7 +161,7 @@ const Projects: React.FC = () => {
       skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
     },
     {
-      src: "",
+      src: "/SQL4.jpeg",
       title: "IMDb Genre & Talent Ratings Analytics (SQL)",
       description: "Produced year-over-year genre averages and highest-average lead actors per year from IMDb datasets using normalized joins, aggregation, and deterministic filtering for complete annual coverage.",
       skills: ["Advanced SQL"," Data Modeling & Quality"," Query Optimization"],
