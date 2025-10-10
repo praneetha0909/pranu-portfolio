@@ -124,13 +124,15 @@ const Projects: React.FC = () => {
   const education = [
     {
       src: "/uta2.png",
-      title: "University of Texas at Arlington",
-      description: "Master's in Computer Science (Jan 2023 – Dec 2024)",
+      title: "Master's in Computer Science",
+      description: "University of texas at Arlington (Jan 2023 – Dec 2024)",
+       skills: ["Database Systems", "AI/ML", "Data Mining", "Cloud Computing & Big Data "]
     },
     {
-      src: "/vignan.png",
-      title: "Vignan Institute of Technology & Science",
+      src: "/JNTUH.jpeg",
+      title: "Jawaharlal Nehru Technological University Hyderabad",
       description: "Bachelor's in Computer Science (Aug 2016 – Sep 2020)",
+       skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"]
     },
   ];
 
