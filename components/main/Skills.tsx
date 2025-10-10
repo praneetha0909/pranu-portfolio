@@ -18,34 +18,35 @@ const skillGroups = [
     title: "Programming Languages & Frameworks",
     color: "from-cyan-600 to-cyan-700",
     skills: [
+      { name: "Python", level: "Advanced" },
       { name: "Java", level: "Advanced" },
-      { name: "SQL", level: "Advanced" },
       { name: "JavaScript", level: "Advanced" },
       { name: "TypeScript", level: "Advanced" },
-      { name: "Python", level: "Advanced" },
       { name: "C", level: "Advanced" },
       { name: "R", level: "Advanced" },
       { name: "HTML5", level: "Advanced" },
       { name: "CSS3", level: "Advanced" },
       { name: "Go (Golang)", level: "Advanced" },
       { name: "Node.js", level: "Advanced" },
+      { name: "Spark", level: "Advanced" },
+      { name: "Hadoop", level: "Advanced" },
       
       { name: "React.js", level: "Advanced" },
       { name: "Tailwind CSS", level: "Advanced" },
-      { name: "FastAPI", level: "Intermediate" },
+      
     ],
   },
   {
     title: "Databases, Cloud & DevOps",
     color: "from-cyan-400 to-blue-300",
     skills: [
+      { name: "SQL", level: "Advanced" },
       { name: "MySQL", level: "Advanced" },
       { name: "NoSQL", level: "Intermediate" },
       { name: "PostgreSQL", level: "Intermediate" },
       { name: "MongoDB", level: "Intermediate" },
       { name: "Google Cloud Platform (GCP)", level: "Advanced" },
       { name: "Amazon Web Services (AWS)", level: "Advanced" },
-     
       { name: "Kubernetes", level: "Advanced" },
       
       
@@ -65,20 +66,7 @@ const skillGroups = [
     { name: "SAP SD", level: "Intermediate" },
   ],
  },
-  {
-    title: "Data Science & AI",
-    color: "from-purple-400 to-purple-600",
-    skills: [
-      { name: "Jupyter Notebook", level: "Advanced" },
-      { name: "OpenAI API", level: "Advanced" },
-      { name: "PyTorch", level: "Advanced" },
-      { name: "TensorFlow", level: "Advanced" },
-      { name: "Scikit-learn", level: "Advanced" },
-      { name: "Spark", level: "Advanced" },
-      { name: "Hadoop", level: "Advanced" },
-      
-    ],
-  },
+  
    {
     title: "Data Visualization",
     color: "from-fuchsia-500 to-pink-600",
@@ -86,16 +74,14 @@ const skillGroups = [
       { name: "Power BI", level: "Advanced" },
       { name: "Tableau", level: "Advanced" },
       { name: "AWS QuickSight", level: "Advanced" },
-      { name: "Matplotlib", level: "Advanced" },
-      { name: "Plotly", level: "Advanced" },
+       
       
-      { name: "ggplot2", level: "Intermediate" },
       
-      { name: "Power Query", level: "Advanced" },
+      { name: "BigQuery", level: "Intermediate" },
       { name: "DAX", level: "Advanced" },
       { name: "KPI Design", level: "Advanced" },
       { name: "Dashboard UX", level: "Advanced" },
-      { name: "Data Storytelling", level: "Advanced" },
+      
     ],
   },
 ];
