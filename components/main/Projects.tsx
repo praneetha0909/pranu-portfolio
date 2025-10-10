@@ -27,12 +27,12 @@ const Projects = () => {
       <div className="flex justify-center items-center gap-12 flex-wrap">
         <ProjectCard
           src="/reality.png"
-          title="Data Engineer (AI & Machine Learning Focus)"
+          title="Data Engineer"
           description={`Reality AI Lab (January 2025 - Present)`}
         />
         <ProjectCard
           src="/tom.jpg"
-          title="Business Intelligence Analyst (Gen AI Focus)"
+          title="Business Intelligence Analyst"
           description={`Tommorrows AI (September 2024 - December 2024)`}
 
         />
