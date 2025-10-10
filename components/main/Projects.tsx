@@ -15,7 +15,7 @@ interface CardProps {
   href?: string; // optional link to details/demo
   badge?: string; // optional small badge (e.g., "2025", "In Progress")
   skills?: string[]; // chips under description
-  github?: string;   // GitHub repo link (shows as pill top-right)
+  github?: string;   // GitHub repo link (used by bottom button only)
 }
 
 const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<CardProps> = ({
   href,
   badge,
   skills,
-  github,
+  github, // kept in props, but not rendered in the top-right anymore
 }) => {
   const CardBody = (
     <motion.div
@@ -83,19 +83,7 @@ const ProjectCard: React.FC<CardProps> = ({
             {badge}
           </span>
         )}
-        {/* (Optional) in-tile Github pill stays as-is if you set github on the card */}
-        {github && (
-          <a
-            href={github}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
-            style={{ borderColor: GOLD, background: "#0b0d12" }}
-            aria-label={`${title} GitHub (opens in new tab)`}
-          >
-            Github
-          </a>
-        )}
+        {/* Removed the top-right GitHub pill */}
       </div>
 
       {/* Text */}
@@ -297,22 +285,23 @@ const Projects: React.FC = () => {
           <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
             <ProjectCard {...p} />
 
-            {/* Github button (robust click) */}
+            {/* Github button (pill, black bg, medium size) */}
             {p.github && (
               <a
                 href={p.github}
                 target="_blank"
                 rel="noreferrer noopener"
                 onClick={(e) => {
-                  // defensive: ensure a new tab opens even if some parent intercepts the click
+                  // Defensive: ensure a new tab opens even if some parent intercepts the click
                   try {
                     e.stopPropagation();
                     window.open(p.github as string, "_blank", "noopener,noreferrer");
-                  } catch {
-                    /* no-op */
-                  }
+                  } catch {/* no-op */}
                 }}
-                className="pointer-events-auto relative z-20 mt-3 py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg hover:scale-105 transition-transform duration-300"
+                className="pointer-events-auto relative z-20 mt-3 inline-flex items-center
+                           rounded-full border px-4 py-2 text-sm font-medium
+                           text-white/90 hover:text-white transition hover:scale-[1.03]"
+                style={{ background: "#0b0d12", borderColor: GOLD }}
               >
                 Github
               </a>
