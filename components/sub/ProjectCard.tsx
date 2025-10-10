@@ -11,7 +11,7 @@ interface Props {
 
 const ProjectCard: React.FC<Props> = ({ src, title, description, badge }) => {
   return (
-    <div className="w-[500px] h-[350px] flex flex-col items-center bg-[#050505] rounded-lg shadow-lg border border-[#E4B860]">
+    <div className="w-[700px] h-[550px] flex flex-col items-center bg-[#050505] rounded-lg shadow-lg border border-[#E4B860]">
       {/* Image area (bigger height; adjust if needed) */}
       <div className="relative w-full h-[180px] overflow-hidden rounded-t-lg bg-gradient-to-b from-black/10 to-black/0">
         <Image
