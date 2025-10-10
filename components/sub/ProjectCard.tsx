@@ -19,7 +19,7 @@ const ProjectCard: React.FC<Props> = ({ src, title, description, badge }) => {
           alt={title}
           fill
           className="object-contain p-2 pointer-events-none rounded-t-lg"
-          sizes="(max-width: 768px) 500px, 500px"
+          sizes="(max-width: 1000px) 500px, 500px"
           priority={false}
         />
 
