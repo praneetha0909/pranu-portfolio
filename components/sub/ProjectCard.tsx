@@ -1,78 +1,71 @@
+// components/sub/ProjectCard.tsx
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import React from "react";
+import React, { ReactNode } from "react";
 
-interface Props {
-  logo: string;
-  title: string;
-  subtitle: string; // company + dates
+export interface Props {
+  src: string | string[];           // ✅ required
+  title: string;                    // ✅ required
+  description: ReactNode;           // ✅ required
+  skills?: string[];
+  containerClassName?: string;
+  imageHeightClass?: string;
 }
 
-export default function ExperienceCard({ logo, title, subtitle }: Props) {
-  const prefersReduced = useReducedMotion();
+const join = (...parts: Array<string | undefined>) =>
+  parts.filter(Boolean).join(" ");
 
-  // gold accent (matches your header)
-  const gold = "#634F26";
+export default function ProjectCard({
+  src,
+  title,
+  description,
+  skills = [],
+  containerClassName,
+  imageHeightClass = "h-[300px]",
+}: Props) {
+  const images = Array.isArray(src) ? src : [src];
+  const multi = images.length > 1;
+
+  const chipClass =
+    "px-3 py-1 text-xs rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-400/40 ring-1 ring-cyan-500/20 hover:bg-cyan-500/25";
 
   return (
-    <motion.div
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      variants={{
-        hidden: { opacity: 0, y: prefersReduced ? 0 : 24, scale: prefersReduced ? 1 : 0.98 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          transition: { duration: 0.5, ease: "easeOut" },
-        },
-      }}
-      whileHover={
-        prefersReduced
-          ? {}
-          : {
-              y: -6,
-              rotateX: 2,
-              rotateY: -2,
-              boxShadow:
-                "0 0 0 1px rgba(99,79,38,.35), 0 18px 40px rgba(99,79,38,.20), 0 4px 10px rgba(0,0,0,.35)",
-              transition: { type: "spring", stiffness: 220, damping: 18 },
-            }
-      }
-      whileTap={prefersReduced ? {} : { scale: 0.99 }}
-      className={`
-        relative rounded-2xl p-6 w-full max-w-[420px] mx-auto
-        bg-[#11131A]/95
-        border border-[${gold}]/45 ring-1 ring-[${gold}]/25
-        shadow-[0_0_0_1px_rgba(99,79,38,0.18),0_10px_30px_rgba(0,0,0,0.35)]
-        transition-all duration-300
-      `}
+    <div
+      className={join(
+        "w-full h-auto flex flex-col items-center bg-[#1A1A2E] rounded-xl shadow-lg border border-[#2A0E61] p-5",
+        containerClassName
+      )}
     >
-      {/* subtle animated gold sheen */}
-      <motion.span
-        aria-hidden
-        className="pointer-events-none absolute -inset-px rounded-2xl"
-        style={{
-          background:
-            "radial-gradient(120px 80px at 20% 0%, rgba(99,79,38,.18), transparent 60%), radial-gradient(140px 100px at 80% 0%, rgba(99,79,38,.16), transparent 60%)",
-        }}
-        animate={prefersReduced ? {} : { opacity: [0.15, 0.35, 0.15] }}
-        transition={prefersReduced ? {} : { duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {multi ? (
+        <div className={join("grid grid-cols-2 gap-3 w-full rounded-lg overflow-hidden", imageHeightClass)}>
+          {images.slice(0, 4).map((img, i) => (
+            <div key={`${img}-${i}`} className="relative w-full h-full bg-black/20 rounded-md">
+              <Image src={img} alt={`${title} screenshot ${i + 1}`} fill style={{ objectFit: "contain" }} priority={i===0}/>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className={join("relative w-full overflow-hidden rounded-lg", imageHeightClass)}>
+          <Image src={images[0]} alt={title} fill style={{ objectFit: "contain" }} priority />
+        </div>
+      )}
 
-      {/* logo */}
-      <div className="relative mx-auto mb-5 h-24 w-24 rounded-md overflow-hidden bg-black/20">
-        <Image src={logo} alt={title} fill style={{ objectFit: "contain" }} />
+      <div className="w-full text-center mt-3">
+        <h1 className="text-2xl font-semibold text-white">{title}</h1>
+        <p className="mt-2 text-gray-300 text-base leading-relaxed">{description}</p>
+
+        {skills.length > 0 && (
+          <div className="mt-3">
+            <p className="text-sm font-medium text-slate-200 mb-2">Skills used</p>
+            <div className="flex flex-wrap justify-center gap-2">
+              {skills.map((s) => (
+                <span key={s} className={chipClass}>{s}</span>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-
-      {/* text */}
-      <h3 className="text-center text-2xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#E8D39A] via-[#D7B766] to-[#A47A31]">
-        {title}
-      </h3>
-      <p className="mt-2 text-center text-slate-300">{subtitle}</p>
-    </motion.div>
+    </div>
   );
 }
