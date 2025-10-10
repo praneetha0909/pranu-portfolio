@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import ProjectCard from "../sub/ProjectCard"; // ✅ default import
+import ProjectCard from "ProjectCard"; // ✅ default import
 
 const items = [
   { logo: "/reality.png",     title: "Data Engineer (AI & Machine Learning Focus)", subtitle: "Reality AI Lab (January 2025 – Present)" },
@@ -28,9 +28,9 @@ export default function Experience() {
         {items.map((it) => (
           <ProjectCard
             key={it.title}
-            src={it.logo}                 // ✅ use src
+            src={uta2.png}                 // ✅ use src
             title={it.title}
-            description={it.subtitle}     // ✅ use description
+            description={"subtitle"}     // ✅ use description
             imageHeightClass="h-[160px]"  // optional: logos fit nicer
             containerClassName="max-w-[420px]"
           />
