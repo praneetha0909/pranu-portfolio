@@ -48,7 +48,7 @@ export default function Experience() {
         }}
       >
         {items.map((it) => (
-          <ExperienceCard key={it.title} logo={it.logo} title={it.title} subtitle={it.subtitle} />
+          <ProjectCard key={it.title} logo={it.logo} title={it.title} subtitle={it.subtitle} />
         ))}
       </motion.div>
     </section>
