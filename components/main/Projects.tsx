@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import ExperienceCard from "../sub/ExperienceCard";
+import ProjectCard from "../sub/ProjectCard";
 
 const items = [
   {
