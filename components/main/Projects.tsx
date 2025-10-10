@@ -42,13 +42,18 @@ export default function Experience() {
         viewport={{ once: true, margin: "-80px" }}
         variants={{
           hidden: {},
-          visible: {
-            transition: { staggerChildren: 0.12 },
-          },
+          visible: { transition: { staggerChildren: 0.12 } },
         }}
       >
         {items.map((it) => (
-          <ProjectCard key={it.title} logo={it.logo} title={it.title} subtitle={it.subtitle} />
+          <ProjectCard
+            key={it.title}
+            src={it.logo}                 // ✅ map to ProjectCard.src
+            title={it.title}
+            description={it.subtitle}     // ✅ map to ProjectCard.description
+            imageHeightClass="h-[160px]"  // logos look nicer a bit shorter
+            containerClassName="max-w-[420px]"
+          />
         ))}
       </motion.div>
     </section>
