@@ -151,8 +151,7 @@ const Projects: React.FC = () => {
     {
       src: "/Job_comp.jpeg",
       title: "Job Compatibility Checker",
-      description:
-        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
+      description:"Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
       skills: ["React", "Next.js", "Python", "NLP", "OpenAI", "Tailwind"],
     },
     {
@@ -165,7 +164,7 @@ const Projects: React.FC = () => {
       src: "",
       title: "IMDb Genre & Talent Ratings Analytics (SQL)",
       description: "Produced year-over-year genre averages and highest-average lead actors per year from IMDb datasets using normalized joins, aggregation, and deterministic filtering for complete annual coverage.",
-      skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
+      skills: ["Advanced SQL"," Data Modeling & Quality"," Query Optimization"],
     },
     {
       src: "/Port2.jpeg",
