@@ -70,7 +70,7 @@ const ProjectCard: React.FC<CardProps> = ({
           src={src}
           alt={title}
           fill
-          className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.04]"
+          className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none"
           sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
@@ -89,7 +89,7 @@ const ProjectCard: React.FC<CardProps> = ({
             href={github}
             target="_blank"
             rel="noreferrer noopener"
-            className="absolute top-3 right-3 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
+            className="absolute top-3 right-3 z-10 inline-flex items-center gap-1 rounded-full border px-3 py-0.5 text-[10px] leading-none text-white/90 hover:text-white transition"
             style={{ borderColor: GOLD, background: "#0b0d12" }}
             aria-label={`${title} GitHub (opens in new tab)`}
           >
@@ -154,9 +154,19 @@ const SectionTitle: React.FC<{ children: React.ReactNode; size?: "lg" | "xl" }> 
 
 const Projects: React.FC = () => {
   const education = [
-   { src: "/uta2.png", title: "Master's in Computer Science",
-    description: "University of Texas at Arlington (Jan 2023 – Dec 2024)",
-    skills: ["Database Systems", "AI/ML", "Data Mining", "Cloud Computing & Big Data "] }, { src: "/JNTUH.jpeg", title: "Jawaharlal Nehru Technological University Hyderabad", description: "Bachelor's in Computer Science (Aug 2016 – Sep 2020)", skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"] }, ];
+    {
+      src: "/uta2.png",
+      title: "Master's in Computer Science",
+      description: "University of Texas at Arlington (Jan 2023 – Dec 2024)",
+      skills: ["Database Systems", "AI/ML", "Data Mining", "Cloud Computing & Big Data "],
+    },
+    {
+      src: "/JNTUH.jpeg",
+      title: "Jawaharlal Nehru Technological University Hyderabad",
+      description: "Bachelor's in Computer Science (Aug 2016 – Sep 2020)",
+      skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"],
+    },
+  ];
 
   const experience = [
     {
@@ -200,7 +210,7 @@ const Projects: React.FC = () => {
       src: "/Job_comp.jpeg",
       title: "Job Compatibility Checker",
       description:
-        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI‑driven improvements.",
+        "Resume compatibility tool that analyzes JDs, scores matches, and suggests AI-driven improvements.",
       skills: ["React", "Next.js", "Python", "NLP", "OpenAI", "Tailwind"],
       github: "https://github.com/praneetha0909/job-compatibility-checker",
     },
@@ -210,13 +220,14 @@ const Projects: React.FC = () => {
       description:
         "Created a Tableau dashboard analyzing 50+ state-level labor metrics. Improved trend identification speed by 30% and supported policy decisions.",
       skills: ["Tableau", "SQL", "BigQuery", "Data Analysis"],
-      github: "https://github.com/praneetha0909/U.S.-Employment-Unemployment-Trends-A-Tableau-Dashboard", // if public; else remove github field
+      github:
+        "https://github.com/praneetha0909/U.S.-Employment-Unemployment-Trends-A-Tableau-Dashboard",
     },
     {
       src: "/SQL4.jpeg",
       title: "IMDb Genre & Talent Ratings Analytics (SQL)",
       description:
-        "Produced YoY genre averages and highest‑average lead actors per year from IMDb datasets using joins, aggregation, and deterministic filtering.",
+        "Produced YoY genre averages and highest-average lead actors per year from IMDb datasets using joins, aggregation, and deterministic filtering.",
       skills: ["Advanced SQL", "Data Modeling & Quality", "Query Optimization"],
       github: "https://github.com/praneetha0909/IMDB-database",
     },
@@ -226,11 +237,12 @@ const Projects: React.FC = () => {
       description:
         "Python chatbot (PandasAI) over 250k+ rows with ~95% precision on factual queries.",
       skills: ["Python", "Pandas", "PandasAI", "DataFrames", "Evaluation"],
-      github: "https://github.com/praneetha0909/Data-Mining/blob/main/Mukkamala_2894_Mulkalapally_8345_Munduru_6693_python.ipynb",
+      github:
+        "https://github.com/praneetha0909/Data-Mining/blob/main/Mukkamala_2894_Mulkalapally_8345_Munduru_6693_python.ipynb",
     },
     {
       src: "/Port3.jpeg",
-      title: "Voice‑Based Chatbot",
+      title: "Voice-Based Chatbot",
       description:
         "Voice feedback analysis with ChatGPT integration and streaming responses.",
       skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming", "OpenAI API"],
