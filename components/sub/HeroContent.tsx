@@ -62,14 +62,14 @@ const HeroContent = () => {
         </motion.a>
       </div>
 
-      {/* Right: Round profile with gradient halo that blends into bg */}
+      {/* Right: Round profile with soft gradient halo + opacity for blending */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        {/* Gradient halo wrapper */}
-        <div className="relative rounded-full p-[3px] bg-gradient-to-r from-orange-700/70 to-purple-500/70 shadow-[0_0_60px_rgba(228,184,96,0.18)]">
-          {/* Inner circle that matches page bg so the border blends in */}
+        {/* Softer halo wrapper */}
+        <div className="relative rounded-full p-[3px] bg-gradient-to-r from-orange-700/60 to-purple-500/60 shadow-[0_0_60px_rgba(228,184,96,0.14)]">
+          {/* Inner circle matches page bg so it blends */}
           <div className="rounded-full bg-[#0b0d12] p-[4px]">
             <div className="relative rounded-full overflow-hidden w-[520px] h-[520px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px]">
               <Image
@@ -78,7 +78,7 @@ const HeroContent = () => {
                 fill
                 priority
                 sizes="(max-width: 1024px) 60vw, 620px"
-                className="object-cover rounded-full"
+                className="object-cover rounded-full opacity-90 hover:opacity-100 transition-opacity duration-300"
                 quality={90}
               />
             </div>
