@@ -1,6 +1,3 @@
-Project
-
-
 "use client";
 
 import Image from "next/image";
@@ -19,12 +16,12 @@ interface CardProps {
   badge?: string; // optional small badge (e.g., "2025", "In Progress")
   skills?: string[]; // chips under description
   github?: string;   // GitHub repo link (used by bottom button only)
-  size?: "sm" | "lg"; // <— NEW: controls tile size
+  size?: "sm" | "lg"; // controls tile size
 }
 
 const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
   if (!skills || skills.length === 0) return null;
-  const max = 6; // show up to 6, then "+N"
+  const max = 6;
   const shown = skills.slice(0, max);
   const extra = skills.length - shown.length;
 
@@ -66,7 +63,7 @@ const CARD_SIZES = {
   },
 } as const;
 
-// ---------- INLINE CARD USED ON THIS PAGE ----------
+// ---------- Inline Card ----------
 const ProjectCard: React.FC<CardProps> = ({
   src,
   title,
@@ -75,7 +72,7 @@ const ProjectCard: React.FC<CardProps> = ({
   badge,
   skills,
   github,
-  size = "sm", // default: original size
+  size = "sm",
 }) => {
   const S = CARD_SIZES[size];
 
@@ -86,7 +83,7 @@ const ProjectCard: React.FC<CardProps> = ({
       className={`group w-[300px] ${S.cardHeight} flex flex-col items-center rounded-2xl shadow-lg border`}
       style={{ borderColor: GOLD, background: "#11131A" }}
     >
-      {/* Image (size varies by 'size' prop) */}
+      {/* Image */}
       <div
         className={`relative w-full ${S.imgHeight} overflow-hidden rounded-t-2xl bg-gradient-to-b from-black/10 to-black/0`}
       >
@@ -98,8 +95,6 @@ const ProjectCard: React.FC<CardProps> = ({
           sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
-
-        {/* Optional badge (top-left) */}
         {badge && (
           <span
             className="absolute top-2 left-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
@@ -108,7 +103,6 @@ const ProjectCard: React.FC<CardProps> = ({
             {badge}
           </span>
         )}
-        {/* Top-right GitHub pill intentionally removed */}
       </div>
 
       {/* Text */}
@@ -175,7 +169,8 @@ const Projects: React.FC = () => {
     {
       src: "/JNTUH.jpeg",
       title: "Bachelor's in Computer Science",
-      description: "Jawaharlal Nehru Technological University Hyderabad (Aug 2016 – Sep 2020)",
+      description:
+        "Jawaharlal Nehru Technological University Hyderabad (Aug 2016 – Sep 2020)",
       skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"],
     },
   ];
@@ -186,7 +181,7 @@ const Projects: React.FC = () => {
       title: "Data Engineer",
       description: "Reality AI Lab (Jan 2025 – Present)",
       badge: "Current",
-      skills: ["Python", "SQL", "Airflow", "AWS", "CI/CD","Docker", "ETL", "Redshift"],
+      skills: ["Python", "SQL", "Airflow", "AWS", "CI/CD", "Docker", "ETL", "Redshift"],
     },
     {
       src: "/tom.jpg",
@@ -208,7 +203,7 @@ const Projects: React.FC = () => {
     },
   ];
 
-  // ---- SIX projects (keep words unchanged)
+  // ---- SIX projects (keep wording unchanged)
   const projects = [
     {
       src: "/Palantir.jpeg",
@@ -263,83 +258,85 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <div id="projects" className="flex flex-col items-center justify-center py-20">
-      {/* Education — keep original (sm) */}
-      <SectionTitle>Education</SectionTitle>
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
-      >
-        {education.map((c, i) => (
-          <motion.div variants={item} key={`edu-${i}`}>
-            <ProjectCard {...c} size="sm" />
-          </motion.div>
-        ))}
-      </motion.div>
+    <div id="projects" className="w-full">
+      {/* PAGE CONTAINER (centers + adds side padding) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center py-20">
+        {/* Education */}
+        <SectionTitle>Education</SectionTitle>
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
+        >
+          {education.map((c, i) => (
+            <motion.div variants={item} key={`edu-${i}`}>
+              <ProjectCard {...c} size="sm" />
+            </motion.div>
+          ))}
+        </motion.div>
 
-      {/* Experience — keep original (sm) */}
-      <SectionTitle size="lg">Experience</SectionTitle>
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
-      >
-        {experience.map((c, i) => (
-          <motion.div variants={item} key={`exp-${i}`}>
-            <ProjectCard {...c} size="sm" />
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* Experience */}
+        <SectionTitle size="lg">Experience</SectionTitle>
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
+        >
+          {experience.map((c, i) => (
+            <motion.div variants={item} key={`exp-${i}`}>
+              <ProjectCard {...c} size="sm" />
+            </motion.div>
+          ))}
+        </motion.div>
 
-      {/* Projects — larger (lg) */}
-      <SectionTitle>Projects</SectionTitle>
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
-      >
-        {projects.map((p, i) => (
-          <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
-            <ProjectCard {...p} size="lg" />
+        {/* Projects — larger tiles */}
+        <SectionTitle>Projects</SectionTitle>
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
+        >
+          {projects.map((p, i) => (
+            <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
+              <ProjectCard {...p} size="lg" />
 
-            {/* Github button (pill, black bg, medium size) */}
-            {p.github && (
-              <a
-                href={p.github}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={(e) => {
-                  try {
-                    e.stopPropagation();
-                    window.open(p.github as string, "_blank", "noopener,noreferrer");
-                  } catch { /* no-op */ }
-                }}
-                className="pointer-events-auto relative z-20 mt-3 inline-flex items-center
-                           rounded-full border px-4 py-2 text-sm font-medium
-                           text-white/90 hover:text-white transition hover:scale-[1.03]"
-                style={{ background: "#0b0d12", borderColor: GOLD }}
-              >
-                Github
-              </a>
-            )}
-          </motion.div>
-        ))}
-      </motion.div>
+              {p.github && (
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={(e) => {
+                    try {
+                      e.stopPropagation();
+                      window.open(p.github as string, "_blank", "noopener,noreferrer");
+                    } catch {}
+                  }}
+                  className="pointer-events-auto relative z-20 mt-3 inline-flex items-center
+                             rounded-full border px-4 py-2 text-sm font-medium
+                             text-white/90 hover:text-white transition hover:scale-[1.03]"
+                  style={{ background: "#0b0d12", borderColor: GOLD }}
+                >
+                  Github
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
 
-      {/* subtle divider */}
-      <div
-        className="mt-16 h-px w-2/3"
-        style={{
-          background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
-        }}
-      />
+        {/* subtle divider */}
+        <div
+          className="mt-16 h-px w-2/3"
+          style={{
+            background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+          }}
+        />
+      </div>
     </div>
   );
 };
