@@ -88,7 +88,7 @@ const HeroContent = () => {
 
             {/* Use your current JPG; multiply removes white against dark bg */}
             <Image
-              src="/profile.jpg"
+              src="/profile.png"
               alt="Praneetha Mukkamala"
               fill
               priority
