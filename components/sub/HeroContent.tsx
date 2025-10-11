@@ -57,7 +57,7 @@ const HeroContent = () => {
         <motion.button
           onClick={handleHireMeClick}
           variants={slideInFromRight(1)}
-          className="mt-2 inline-flex justify-center py-3 px-6 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-base sm:text-lg rounded-lg w-full sm:w-auto hover:scale-[1.02] active:scale-[0.99] transition-transform duration-200"
+          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
         >
           Resume
         </motion.button>
@@ -74,7 +74,7 @@ const HeroContent = () => {
           <div className="relative rounded-full mask-feather-strong w-full h-full overflow-hidden">
             {/* Use a transparent PNG for best look */}
             <Image
-              src="/profile.png"
+              src="/profilebg.jpeg"
               alt="Praneetha Mukkamala"
               fill
               priority
