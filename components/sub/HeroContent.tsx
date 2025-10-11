@@ -1,4 +1,3 @@
-// components/main/HeroContent.tsx
 "use client";
 
 import React from "react";
@@ -13,78 +12,89 @@ import Image from "next/image";
 
 const HeroContent = () => {
   const handleHireMeClick = () => {
-    window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank", "noopener,noreferrer");
+    window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank");
   };
 
   return (
     <motion.div
       initial="hidden"
       animate="visible"
-      // Mobile: column, centered. md+: row with spacing.
-      className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-12 px-5 sm:px-8 md:px-12 lg:px-20 mt-16 sm:mt-24 md:mt-28 w-full z-[20]"
+      // keep any masks/gradients contained
+      className="relative w-full overflow-hidden"
     >
-      {/* LEFT: text */}
-      <div className="w-full md:w-1/2 flex flex-col gap-4 sm:gap-5">
-        <motion.div
-          variants={slideInFromTop}
-          className="Welcome-box py-[8px] px-[10px] border border-[#d19932] opacity-[0.9] w-max"
-        >
-          <SparklesIcon className="text-[#d19932] mr-[10px] h-4 w-4 sm:h-5 sm:w-5" />
-          <h1 className="Welcome-text text-[12px] sm:text-[13px]">Data Engineer</h1>
-        </motion.div>
+      {/* PAGE CONTAINER */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* 2-col layout on lg; text-first on mobile */}
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-10 mt-16 lg:mt-24">
+          {/* LEFT: Text */}
+          <div className="w-full lg:w-[58%]">
+            <motion.div
+              variants={slideInFromTop}
+              className="Welcome-box py-[8px] px-[7px] border border-[#d19932] opacity-[0.9]"
+            >
+              <SparklesIcon className="text-[#d19932] mr-[10px] h-5 w-5" />
+              <h1 className="Welcome-text text-[13px]">Data Engineer</h1>
+            </motion.div>
 
-        <motion.h1
-          variants={slideInFromLeft(0.5)}
-          // clamp() keeps it readable on every screen
-          className="font-bold text-white leading-tight text-[clamp(28px,7vw,60px)] max-w-[24ch]"
-        >
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
-            Praneetha Mukkamala
-          </span>
-          <br />
-          Data Engineer
-        </motion.h1>
+            <motion.div
+              variants={slideInFromLeft(0.5)}
+              className="flex flex-col gap-6 mt-6 text-white font-bold leading-tight"
+            >
+              {/* explicit line breaks; prevents weird mid-word wrapping */}
+              <span className="text-5xl sm:text-6xl xl:text-7xl">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
+                  Praneetha Mukkamala
+                </span>
+                <span className="block">Data Engineer</span>
+              </span>
+            </motion.div>
 
-        <motion.p
-          variants={slideInFromLeft(0.8)}
-          className="text-[15px] sm:text-[16px] text-gray-400 max-w-[60ch]"
-        >
-          I design and build SQL/Python ELT pipelines and dimensional models on
-          AWS/GCP, turning business questions into trusted datasets and clear
-          dashboards.
-        </motion.p>
+            <motion.p
+              variants={slideInFromLeft(0.8)}
+              className="text-lg text-gray-400 my-5 max-w-[42rem]"
+            >
+              I design and build SQL/Python ELT pipelines and dimensional models
+              on AWS/GCP, turning business questions into trusted datasets and
+              clear dashboards.
+            </motion.p>
 
-        <motion.button
-          onClick={handleHireMeClick}
-          variants={slideInFromRight(1)}
-          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
-        >
-          Resume
-        </motion.button>
-      </div>
-
-      {/* RIGHT: portrait (feathered circle with halo) */}
-      <motion.div
-        variants={slideInFromRight(0.8)}
-        className="w-full md:w-1/2 flex justify-center items-center"
-      >
-        <div className="relative w-[260px] h-[260px] sm:w-[300px] sm:h-[300px] md:w-[340px] md:h-[340px] lg:w-[380px] lg:h-[380px]">
-          <div className="ring-vignette pointer-events-none" />
-          <div className="halo-soft pointer-events-none" />
-          <div className="relative rounded-full mask-feather-strong w-full h-full overflow-hidden">
-            {/* Use a transparent PNG for best look */}
-            <Image
-              src="/profilebg.jpeg"
-              alt="Praneetha Mukkamala"
-              fill
-              priority
-              sizes="(max-width: 640px) 260px, (max-width: 768px) 300px, (max-width: 1024px) 340px, 380px"
-              className="object-cover object-center"
-              quality={90}
-            />
+            <motion.a
+              onClick={handleHireMeClick}
+              variants={slideInFromRight(1)}
+              className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[140px] hover:scale-105 transition-transform duration-300 cursor-pointer select-none"
+            >
+              Resume
+            </motion.a>
           </div>
+
+          {/* RIGHT: Portrait (round, subtle glow) */}
+          <motion.div
+            variants={slideInFromRight(0.8)}
+            className="w-full lg:w-[42%] flex justify-center items-center"
+          >
+            <div className="relative">
+              {/* glow ring behind */}
+              <div className="absolute inset-0 -z-10 rounded-full blur-2xl"
+                   style={{
+                     background:
+                       "radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 40%, rgba(0,0,0,0) 75%)",
+                   }}
+              />
+              {/* portrait */}
+              <div className="h-[360px] w-[360px] sm:h-[400px] sm:w-[400px] rounded-full ring-1 ring-white/10 shadow-[0_0_60px_rgba(255,255,255,0.08)] overflow-hidden">
+                <Image
+                  src="/profilebg.jpeg"
+                  alt="Praneetha portrait"
+                  width={800}
+                  height={800}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      </div>
     </motion.div>
   );
 };
