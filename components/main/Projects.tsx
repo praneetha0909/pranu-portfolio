@@ -171,8 +171,8 @@ const Projects: React.FC = () => {
     },
     {
       src: "/JNTUH.jpeg",
-      title: "Jawaharlal Nehru Technological University Hyderabad",
-      description: "Bachelor's in Computer Science (Aug 2016 – Sep 2020)",
+      title: "Bachelor's in Computer Science",
+      description: "Jawaharlal Nehru Technological University Hyderabad (Aug 2016 – Sep 2020)",
       skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"],
     },
   ];
@@ -183,7 +183,7 @@ const Projects: React.FC = () => {
       title: "Data Engineer",
       description: "Reality AI Lab (Jan 2025 – Present)",
       badge: "Current",
-      skills: ["Python", "SQL", "Airflow", "AWS", "Docker", "CI/CD"],
+      skills: ["Python", "SQL", "Airflow", "AWS", "CI/CD"],
     },
     {
       src: "/tom.jpg",
@@ -195,13 +195,13 @@ const Projects: React.FC = () => {
       src: "/uta2.png",
       title: "Data Reporting Analyst",
       description: "University of Texas at Arlington (Aug 2023 – Dec 2024)",
-      skills: ["SQL", "Excel", "Dashboards", "Stakeholder Reports"],
+      skills: ["SQL", "Excel", "Dashboards", "Stakeholder Reports", "Power BI"],
     },
     {
       src: "/infosys.png",
       title: "SAP Data & Systems Analyst",
       description: "Infosys (Mar 2021 – Nov 2022)",
-      skills: ["SAP S/4HANA", "ABAP (read)", "HP ALM", "Process Docs"],
+      skills: ["SAP S/4HANA", "SAP Fiori", "CDS Views", "HP ALM", "ABAP"],
     },
   ];
 
