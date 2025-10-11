@@ -21,7 +21,7 @@ const HeroContent: React.FC = () => {
       animate="visible"
       className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
     >
-      {/* LEFT: Headline + CTA */}
+      {/* LEFT: Heading & CTA */}
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
@@ -56,30 +56,27 @@ const HeroContent: React.FC = () => {
         <motion.a
           onClick={handleHireMeClick}
           variants={slideInFromRight(1)}
-          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
+          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300 cursor-pointer"
         >
           Resume
         </motion.a>
       </div>
 
-      {/* RIGHT: Circular profile with feather + subtle gradient halo */}
+      {/* RIGHT: Circular profile with feather + vignette ring */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        {/* Wrapper controls overall size across breakpoints (slightly smaller) */}
+        {/* Wrapper controls size of the portrait */}
         <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px]">
-          {/* Radial halo behind the image (gold → purple → transparent) */}
-          <div
-            className="
-              pointer-events-none absolute inset-0 rounded-full
-              opacity-55 blur-lg
-              [background:radial-gradient(closest-side,rgba(228,184,96,.35),rgba(147,51,234,.22),transparent_70%)]
-            "
-          />
+          {/* Outer vignette ring around the circle (soft/dark edge) */}
+          <div className="ring-vignette" />
 
-          {/* Feathered circular image (requires .mask-feather in global.css) */}
-          <div className="relative rounded-full mask-feather w-full h-full overflow-hidden">
+          {/* Optional warm halo beneath for depth */}
+          <div className="halo-soft" />
+
+          {/* Feathered circular image that blends into the starry bg */}
+          <div className="relative rounded-full mask-feather-strong w-full h-full overflow-hidden">
             <Image
               src="/profile.jpg"
               alt="Praneetha Mukkamala"
