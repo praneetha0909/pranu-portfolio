@@ -75,22 +75,24 @@ html {
   color: white;
 }
 /* Smooth radial feather for the hero profile */
-/* Smooth radial feather for the hero profile */
-.mask-feather{
+.mask-feather {
+  /* opaque center → transparent edges */
   -webkit-mask-image: radial-gradient(
     circle at center,
-    rgba(0,0,0,1) 54%,
-    rgba(0,0,0,0.65) 72%,
-    rgba(0,0,0,0) 88%
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.75) 78%,
+    rgba(0, 0, 0, 0) 92%
   );
   mask-image: radial-gradient(
     circle at center,
-    rgba(0,0,0,1) 54%,
-    rgba(0,0,0,0.65) 72%,
-    rgba(0,0,0,0) 88%
+    rgba(0, 0, 0, 1) 60%,
+    rgba(0, 0, 0, 0.75) 78%,
+    rgba(0, 0, 0, 0) 92%
   );
-  -webkit-mask-repeat:no-repeat; mask-repeat:no-repeat;
-  -webkit-mask-size:100% 100%;   mask-size:100% 100%;
-  -webkit-mask-position:center;  mask-position:center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
-
