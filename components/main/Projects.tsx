@@ -49,25 +49,21 @@ const SkillChips: React.FC<{ skills?: string[] }> = ({ skills }) => {
   );
 };
 
-// Size presets (affects card + image heights only)
+// Size presets (only affects Projects when size="lg")
 const CARD_SIZES = {
   sm: {
     cardHeight: "h-[320px]",
     imgHeight: "h-[120px] sm:h-[130px] lg:h-[140px]",
     imgPadding: "p-2",
-    maxW: "max-w-[320px]",
-    sizesAttr: "(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 320px",
   },
   lg: {
     cardHeight: "h-[420px]",
     imgHeight: "h-[220px] sm:h-[230px] lg:h-[240px]",
     imgPadding: "p-1",
-    maxW: "max-w-[360px]",
-    sizesAttr: "(max-width: 640px) 92vw, (max-width: 1024px) 45vw, 360px",
   },
 } as const;
 
-// ---------- INLINE CARD ----------
+// ---------- Inline Card ----------
 const ProjectCard: React.FC<CardProps> = ({
   src,
   title,
@@ -75,6 +71,7 @@ const ProjectCard: React.FC<CardProps> = ({
   href,
   badge,
   skills,
+  github,
   size = "sm",
 }) => {
   const S = CARD_SIZES[size];
@@ -83,12 +80,7 @@ const ProjectCard: React.FC<CardProps> = ({
     <motion.div
       whileHover={{ y: -6, rotate: 0.1 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={[
-        // Mobile: full width; clamp the max width per size
-        "group w-full", S.maxW,
-        S.cardHeight,
-        "flex flex-col items-center rounded-2xl shadow-lg border",
-      ].join(" ")}
+      className={`group w-[300px] ${S.cardHeight} flex flex-col items-center rounded-2xl shadow-lg border`}
       style={{ borderColor: GOLD, background: "#11131A" }}
     >
       {/* Image */}
@@ -100,11 +92,9 @@ const ProjectCard: React.FC<CardProps> = ({
           alt={title}
           fill
           className={`object-contain ${S.imgPadding} transition-transform duration-300 group-hover:scale-[1.04] pointer-events-none`}
-          sizes={S.sizesAttr}
+          sizes="(max-width: 768px) 300px, 300px"
           priority={false}
         />
-
-        {/* Optional badge (top-left) */}
         {badge && (
           <span
             className="absolute top-2 left-2 rounded-full border px-2 py-0.5 text-[10px] tracking-wide"
@@ -125,7 +115,12 @@ const ProjectCard: React.FC<CardProps> = ({
   );
 
   return href ? (
-    <a href={href} target="_blank" rel="noreferrer noopener" aria-label={`${title} (opens in new tab)`}>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      aria-label={`${title} (opens in new tab)`}
+    >
       {CardBody}
     </a>
   ) : (
@@ -174,7 +169,8 @@ const Projects: React.FC = () => {
     {
       src: "/JNTUH.jpeg",
       title: "Bachelor's in Computer Science",
-      description: "Jawaharlal Nehru Technological University Hyderabad (Aug 2016 – Sep 2020)",
+      description:
+        "Jawaharlal Nehru Technological University Hyderabad (Aug 2016 – Sep 2020)",
       skills: ["Python", "Data Warehouse", "Web Data Management", "Software Engineering"],
     },
   ];
@@ -207,7 +203,7 @@ const Projects: React.FC = () => {
     },
   ];
 
-  // ---- SIX projects (keep words unchanged)
+  // ---- SIX projects (keep wording unchanged)
   const projects = [
     {
       src: "/Palantir.jpeg",
@@ -262,84 +258,85 @@ const Projects: React.FC = () => {
   ];
 
   return (
-    <div id="projects" className="flex flex-col items-center justify-center py-20">
-      {/* Education — responsive grid */}
-      <SectionTitle>Education</SectionTitle>
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 place-items-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
-      >
-        {education.map((c, i) => (
-          <motion.div variants={item} key={`edu-${i}`} className="w-full flex justify-center">
-            <ProjectCard {...c} size="sm" />
-          </motion.div>
-        ))}
-      </motion.div>
+    <div id="projects" className="w-full">
+      {/* PAGE CONTAINER (centers + adds side padding) */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center py-20">
+        {/* Education */}
+        <SectionTitle>Education</SectionTitle>
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
+        >
+          {education.map((c, i) => (
+            <motion.div variants={item} key={`edu-${i}`}>
+              <ProjectCard {...c} size="sm" />
+            </motion.div>
+          ))}
+        </motion.div>
 
-      {/* Experience — responsive grid */}
-      <SectionTitle size="lg">Experience</SectionTitle>
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 place-items-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
-      >
-        {experience.map((c, i) => (
-          <motion.div variants={item} key={`exp-${i}`} className="w-full flex justify-center">
-            <ProjectCard {...c} size="sm" />
-          </motion.div>
-        ))}
-      </motion.div>
+        {/* Experience */}
+        <SectionTitle size="lg">Experience</SectionTitle>
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
+        >
+          {experience.map((c, i) => (
+            <motion.div variants={item} key={`exp-${i}`}>
+              <ProjectCard {...c} size="sm" />
+            </motion.div>
+          ))}
+        </motion.div>
 
-      {/* Projects — larger cards, responsive grid */}
-      <SectionTitle>Projects</SectionTitle>
-      <motion.div
-        variants={sectionVariants}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-80px" }}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 place-items-center w-full px-5 sm:px-8 md:px-12 lg:px-16"
-      >
-        {projects.map((p, i) => (
-          <motion.div variants={item} key={`proj-${i}`} className="w-full flex flex-col items-center">
-            <ProjectCard {...p} size="lg" />
+        {/* Projects — larger tiles */}
+        <SectionTitle>Projects</SectionTitle>
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          className="flex justify-center items-center gap-6 md:gap-12 flex-wrap"
+        >
+          {projects.map((p, i) => (
+            <motion.div variants={item} key={`proj-${i}`} className="flex flex-col items-center">
+              <ProjectCard {...p} size="lg" />
 
-            {/* Github button (pill) */}
-            {p.github && (
-              <a
-                href={p.github}
-                target="_blank"
-                rel="noreferrer noopener"
-                onClick={(e) => {
-                  try {
-                    e.stopPropagation();
-                    window.open(p.github as string, "_blank", "noopener,noreferrer");
-                  } catch {/* no-op */}
-                }}
-                className="pointer-events-auto relative z-20 mt-3 inline-flex items-center justify-center
-                           rounded-full border px-5 py-2.5 text-sm font-medium
-                           text-white/90 hover:text-white transition hover:scale-[1.03]
-                           w-full sm:w-auto"
-                style={{ background: "#0b0d12", borderColor: GOLD }}
-              >
-                Github
-              </a>
-            )}
-          </motion.div>
-        ))}
-      </motion.div>
+              {p.github && (
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={(e) => {
+                    try {
+                      e.stopPropagation();
+                      window.open(p.github as string, "_blank", "noopener,noreferrer");
+                    } catch {}
+                  }}
+                  className="pointer-events-auto relative z-20 mt-3 inline-flex items-center
+                             rounded-full border px-4 py-2 text-sm font-medium
+                             text-white/90 hover:text-white transition hover:scale-[1.03]"
+                  style={{ background: "#0b0d12", borderColor: GOLD }}
+                >
+                  Github
+                </a>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
 
-      {/* subtle divider */}
-      <div
-        className="mt-16 h-px w-2/3"
-        style={{
-          background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
-        }}
-      />
+        {/* subtle divider */}
+        <div
+          className="mt-16 h-px w-2/3"
+          style={{
+            background: `linear-gradient(90deg, transparent, ${GOLD}, transparent)`,
+          }}
+        />
+      </div>
     </div>
   );
 };
