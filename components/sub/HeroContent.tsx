@@ -67,22 +67,20 @@ const HeroContent: React.FC = () => {
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        {/* Wrapper controls size of the portrait */}
-        <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px]">
-          {/* Outer vignette ring around the circle (soft/dark edge) */}
+        {/* ↓↓↓ Reduced sizes here ↓↓↓ */}
+        <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px]">
+          {/* Outer vignette ring */}
           <div className="ring-vignette" />
-
-          {/* Optional warm halo beneath for depth */}
+          {/* Warm halo */}
           <div className="halo-soft" />
-
-          {/* Feathered circular image that blends into the starry bg */}
+          {/* Feathered circular image */}
           <div className="relative rounded-full mask-feather-strong w-full h-full overflow-hidden">
             <Image
               src="/profile.jpg"
               alt="Praneetha Mukkamala"
               fill
               priority
-              sizes="(max-width: 1024px) 60vw, 480px"
+              sizes="(max-width: 1024px) 50vw, 400px"
               className="object-cover object-center"
               quality={90}
             />
