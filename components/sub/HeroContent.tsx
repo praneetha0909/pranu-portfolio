@@ -36,7 +36,7 @@ const HeroContent = () => {
               variants={slideInFromLeft(0.5)}
               className="flex flex-col gap-6 mt-6 text-white font-bold leading-tight"
             >
-              <span className="text-[20px] sm:text-5xl xl:text-7xl">
+              <span className="text-[40px] sm:text-5xl xl:text-7xl">
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
                   Praneetha Mukkamala
                 </span>
