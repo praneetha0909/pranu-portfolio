@@ -64,7 +64,7 @@ const HeroContent = () => {
         className="w-full h-full flex justify-center items-center"
       >
         <Image
-          src="/icons12.png"
+          src="/profile.jpg"
           alt="work icons"
           height={650}
           width={650}
