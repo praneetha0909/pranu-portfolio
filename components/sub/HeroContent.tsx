@@ -19,10 +19,10 @@ const HeroContent = () => {
 
   return (
     <motion.div initial="hidden" animate="visible" className="relative w-full">
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 lg:pt-0">
-        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-10 mt-0 lg:mt-20">
-          {/* LEFT: Text */}
-          <div className="w-full lg:w-[58%]">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+        <div className="flex flex-col lg:flex-row items-start gap-8 lg:gap-10 lg:mt-8">
+          {/* LEFT: Text — pushed down on desktop */}
+          <div className="w-full lg:w-[58%] mt-0 lg:mt-24">
             <motion.div
               variants={slideInFromTop}
               className="Welcome-box py-[6px] px-[7px] border border-[#d19932] opacity-[0.9] w-max"
@@ -45,8 +45,6 @@ const HeroContent = () => {
                                bg-gradient-to-r from-orange-500 to-purple-500">
                 Praneetha Mukkamala
               </span>
-
-              {/* Role */}
               <span className="block
                                text-[30px] leading-tight
                                sm:text-4xl
@@ -82,14 +80,14 @@ const HeroContent = () => {
           {/* RIGHT: Portrait (hidden on mobile) */}
           <motion.div
             variants={slideInFromRight(0.8)}
-            className="hidden lg:flex w-full lg:w-[42%] justify-center items-center"
+            className="hidden lg:flex w-full lg:w-[42%] justify-center items-start lg:items-start"
           >
             <div
               className="h-[320px] w-[320px] xl:h-[360px] xl:w-[360px] rounded-full overflow-hidden"
               style={{ border: `2px solid ${GOLD}` }}
             >
               <Image
-                src="/profile.jpg"
+                src="/profilebg.jpeg"
                 alt="Praneetha portrait"
                 width={800}
                 height={800}
