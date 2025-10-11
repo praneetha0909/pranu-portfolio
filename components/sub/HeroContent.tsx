@@ -36,17 +36,17 @@ const HeroContent = () => {
               variants={slideInFromLeft(0.5)}
               className="mt-5 font-bold text-white tracking-tight break-words"
             >
-              <span className="block text-[30px] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
+              <span className="block text-[27px] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-purple-500">
                 Praneetha Mukkamala
               </span>
-              <span className="block text-[27px] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
+              <span className="block text-[24px] leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl">
                 Data Engineer
               </span>
             </motion.h1>
 
             <motion.p
               variants={slideInFromLeft(0.8)}
-              className="text-[15px] sm:text-lg text-gray-400 mt-5 max-w-[42rem]"
+              className="text-[13px] sm:text-lg text-gray-400 mt-5 max-w-[42rem]"
             >
               I design and build SQL/Python ELT pipelines and dimensional models
               on AWS/GCP, turning business questions into trusted datasets and
