@@ -62,13 +62,22 @@ const HeroContent = () => {
         </motion.a>
       </div>
 
-      {/* Right: Profile with a true radial mask (no opaque wrappers) */}
+      {/* Right: Profile feathered into bg with a container radial mask */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        {/* No background here — let the page/star field show through */}
-        <div className="relative w-[520px] h-[520px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px]">
+        {/* IMPORTANT: No inner backgrounds here.
+           The mask lives on the container and fades children (the image). */}
+        <div
+          className={[
+            "relative w-[520px] h-[520px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px]",
+            // Tailwind arbitrary properties for mask (JIT)
+            "[mask-image:radial-gradient(circle_at_center,black_60%,rgba(0,0,0,0.75)_78%,transparent_92%)]",
+            "[-webkit-mask-image:radial-gradient(circle_at_center,black_60%,rgba(0,0,0,0.75)_78%,transparent_92%)]",
+            "[mask-size:100%_100%] [mask-repeat:no-repeat] [mask-position:center]",
+          ].join(" ")}
+        >
           <Image
             src="/profile.jpg"
             alt="Praneetha Mukkamala"
@@ -77,15 +86,6 @@ const HeroContent = () => {
             sizes="(max-width: 1024px) 60vw, 620px"
             className="object-cover"
             quality={90}
-            style={{
-              // Make it circular + feather edges to transparent
-              borderRadius: "50%",
-              WebkitMaskImage:
-                "radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0) 92%)",
-              maskImage:
-                "radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 60%, rgba(0,0,0,0.8) 75%, rgba(0,0,0,0) 92%)",
-              WebkitMaskComposite: "source-over",
-            }}
           />
         </div>
       </motion.div>
