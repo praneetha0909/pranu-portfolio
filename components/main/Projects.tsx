@@ -183,7 +183,7 @@ const Projects: React.FC = () => {
       title: "Data Engineer",
       description: "Reality AI Lab (Jan 2025 – Present)",
       badge: "Current",
-      skills: ["Python", "SQL", "Airflow", "AWS", "CI/CD"],
+      skills: ["Python", "SQL", "Airflow", "AWS", "CI/CD","Docker", "ETL", "Redshift"],
     },
     {
       src: "/tom.jpg",
