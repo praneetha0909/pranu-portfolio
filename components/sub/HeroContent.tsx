@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   slideInFromLeft,
@@ -8,11 +9,10 @@ import {
   slideInFromTop,
 } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 
-const HeroContent = () => {
+const HeroContent: React.FC = () => {
   const handleHireMeClick = () => {
-    window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank", "noopener,noreferrer");
+    window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank");
   };
 
   return (
@@ -21,7 +21,7 @@ const HeroContent = () => {
       animate="visible"
       className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
     >
-      {/* LEFT: Headline */}
+      {/* LEFT: Heading & CTA */}
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
@@ -56,44 +56,32 @@ const HeroContent = () => {
         <motion.a
           onClick={handleHireMeClick}
           variants={slideInFromRight(1)}
-          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300"
+          className="py-3 px-5 bg-gradient-to-r from-orange-700 to-purple-500 text-white font-semibold text-lg rounded-lg max-w-[120px] hover:scale-105 transition-transform duration-300 cursor-pointer"
         >
           Resume
         </motion.a>
       </div>
 
-      {/* RIGHT: Circular portrait with blend (white bg “removed”) */}
+      {/* RIGHT: Circular profile with feather + vignette ring */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        <div
-          className="
-            relative 
-            w-[300px] h-[300px] 
-            sm:w-[340px] sm:h-[340px] 
-            lg:w-[400px] lg:h-[400px]
-          "
-        >
-          {/* Outer soft vignette ring (subtle) */}
-          <div className="ring-vignette pointer-events-none" />
-
-          {/* Soft halo that merges into page background */}
-          <div className="halo-soft pointer-events-none" />
-
-          {/* Feathered circular mask container */}
+        {/* ↓↓↓ Reduced sizes here ↓↓↓ */}
+        <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px]">
+          {/* Outer vignette ring */}
+          <div className="ring-vignette" />
+          {/* Warm halo */}
+          <div className="halo-soft" />
+          {/* Feathered circular image */}
           <div className="relative rounded-full mask-feather-strong w-full h-full overflow-hidden">
-            {/* dark base helps multiply blending hide whites */}
-            <div className="absolute inset-0 bg-black" />
-
-            {/* Use your current JPG; multiply removes white against dark bg */}
             <Image
-              src="/profile.png"
+              src="/profilebg.jpeg"
               alt="Praneetha Mukkamala"
               fill
               priority
               sizes="(max-width: 1024px) 50vw, 400px"
-              className="object-cover object-center mix-blend-multiply opacity-95"
+              className="object-cover object-center"
               quality={90}
             />
           </div>
