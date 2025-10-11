@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   slideInFromLeft,
@@ -8,9 +9,8 @@ import {
   slideInFromTop,
 } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
 
-const HeroContent = () => {
+const HeroContent: React.FC = () => {
   const handleHireMeClick = () => {
     window.open("/Praneetha_Mukkamala_Resume.pdf", "_blank");
   };
@@ -21,7 +21,7 @@ const HeroContent = () => {
       animate="visible"
       className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20]"
     >
-      {/* Left: Text */}
+      {/* LEFT: Headline + CTA */}
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
           variants={slideInFromTop}
@@ -62,32 +62,36 @@ const HeroContent = () => {
         </motion.a>
       </div>
 
-      {/* Right: Profile feathered into bg with a container radial mask */}
-     {/* Right: Circular profile with feathered edge, smaller size */}
-<motion.div
-  variants={slideInFromRight(0.8)}
-  className="w-full h-full flex justify-center items-center"
->
-  <div
-    className="
-      relative mask-feather rounded-full overflow-hidden
-      w-[420px] h-[420px]
-      sm:w-[480px] sm:h-[480px]
-      lg:w-[540px] lg:h-[540px]
-    "
-  >
-    <Image
-      src="/profile.jpg"
-      alt="Praneetha Mukkamala"
-      fill
-      priority
-      sizes="(max-width: 1024px) 60vw, 540px"
-      className="object-cover object-center"
-      quality={90}
-    />
-  </div>
-</motion.div>
+      {/* RIGHT: Circular profile with feather + subtle gradient halo */}
+      <motion.div
+        variants={slideInFromRight(0.8)}
+        className="w-full h-full flex justify-center items-center"
+      >
+        {/* Wrapper controls overall size across breakpoints */}
+        <div className="relative w-[420px] h-[420px] sm:w-[480px] sm:h-[480px] lg:w-[540px] lg:h-[540px]">
+          {/* Radial halo behind the image (gold → purple → transparent) */}
+          <div
+            className="
+              pointer-events-none absolute inset-0 rounded-full
+              opacity-45 blur-md
+              [background:radial-gradient(closest-side,rgba(228,184,96,.35),rgba(147,51,234,.25),transparent_72%)]
+            "
+          />
 
+          {/* Feathered circular image */}
+          <div className="relative rounded-full mask-feather w-full h-full overflow-hidden">
+            <Image
+              src="/profile.jpg"
+              alt="Praneetha Mukkamala"
+              fill
+              priority
+              sizes="(max-width: 1024px) 60vw, 540px"
+              className="object-cover object-center"
+              quality={90}
+            />
+          </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
