@@ -62,30 +62,38 @@ const HeroContent = () => {
         </motion.a>
       </div>
 
-      {/* Right: Round profile with soft gradient halo + opacity for blending */}
+      {/* Right: Profile with radial mask feathering into bg */}
       <motion.div
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        {/* Softer halo wrapper */}
-        <div className="relative rounded-full p-[3px] bg-gradient-to-r from-orange-700/60 to-purple-500/60 shadow-[0_0_60px_rgba(228,184,96,0.14)]">
-          {/* Inner circle matches page bg so it blends */}
+        {/* Outer wrapper gives a very soft color glow; keep subtle so the mask shines */}
+        <div className="relative rounded-full p-[2px] bg-gradient-to-r from-orange-700/40 to-purple-500/40">
           <div className="rounded-full bg-[#0b0d12] p-[4px]">
-            <div className="relative rounded-full overflow-hidden w-[520px] h-[520px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px]">
+            {/* Masked image container */}
+            <div
+              className="relative overflow-hidden rounded-full w-[520px] h-[520px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px]"
+              style={{
+                // Feather the edges: opaque center → transparent edges
+                WebkitMaskImage:
+                  "radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 58%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,0) 90%)",
+                maskImage:
+                  "radial-gradient(circle at 50% 50%, rgba(0,0,0,1) 58%, rgba(0,0,0,0.6) 75%, rgba(0,0,0,0) 90%)",
+                // Smoothen mask transitions
+                WebkitMaskComposite: "source-over",
+              }}
+            >
               <Image
                 src="/profile.jpg"
                 alt="Praneetha Mukkamala"
                 fill
                 priority
                 sizes="(max-width: 1024px) 60vw, 620px"
-                className="object-cover rounded-full opacity-90 hover:opacity-100 transition-opacity duration-300"
+                className="object-cover"
                 quality={90}
               />
             </div>
           </div>
-
-          {/* subtle top ring to help blend into starry bg */}
-          <div className="pointer-events-none absolute inset-0 rounded-full ring-1 ring-white/5" />
         </div>
       </motion.div>
     </motion.div>
