@@ -63,32 +63,31 @@ const HeroContent = () => {
       </div>
 
       {/* Right: Profile feathered into bg with a container radial mask */}
-      <motion.div
-        variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center"
-      >
-        {/* IMPORTANT: No inner backgrounds here.
-           The mask lives on the container and fades children (the image). */}
-        <div
-          className={[
-            "relative w-[520px] h-[520px] sm:w-[560px] sm:h-[560px] lg:w-[620px] lg:h-[620px]",
-            // Tailwind arbitrary properties for mask (JIT)
-            "[mask-image:radial-gradient(circle_at_center,black_60%,rgba(0,0,0,0.75)_78%,transparent_92%)]",
-            "[-webkit-mask-image:radial-gradient(circle_at_center,black_60%,rgba(0,0,0,0.75)_78%,transparent_92%)]",
-            "[mask-size:100%_100%] [mask-repeat:no-repeat] [mask-position:center]",
-          ].join(" ")}
-        >
-          <Image
-            src="/profile.jpg"
-            alt="Praneetha Mukkamala"
-            fill
-            priority
-            sizes="(max-width: 1024px) 60vw, 620px"
-            className="object-cover"
-            quality={90}
-          />
-        </div>
-      </motion.div>
+     {/* Right: Circular profile with feathered edge, smaller size */}
+<motion.div
+  variants={slideInFromRight(0.8)}
+  className="w-full h-full flex justify-center items-center"
+>
+  <div
+    className="
+      relative mask-feather rounded-full overflow-hidden
+      w-[420px] h-[420px]
+      sm:w-[480px] sm:h-[480px]
+      lg:w-[540px] lg:h-[540px]
+    "
+  >
+    <Image
+      src="/profile.jpg"
+      alt="Praneetha Mukkamala"
+      fill
+      priority
+      sizes="(max-width: 1024px) 60vw, 540px"
+      className="object-cover object-center"
+      quality={90}
+    />
+  </div>
+</motion.div>
+
     </motion.div>
   );
 };
