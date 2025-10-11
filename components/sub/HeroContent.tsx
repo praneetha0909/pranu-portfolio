@@ -67,25 +67,25 @@ const HeroContent: React.FC = () => {
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        {/* Wrapper controls overall size across breakpoints */}
-        <div className="relative w-[420px] h-[420px] sm:w-[480px] sm:h-[480px] lg:w-[540px] lg:h-[540px]">
+        {/* Wrapper controls overall size across breakpoints (slightly smaller) */}
+        <div className="relative w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px]">
           {/* Radial halo behind the image (gold → purple → transparent) */}
           <div
             className="
               pointer-events-none absolute inset-0 rounded-full
-              opacity-45 blur-md
-              [background:radial-gradient(closest-side,rgba(228,184,96,.35),rgba(147,51,234,.25),transparent_72%)]
+              opacity-55 blur-lg
+              [background:radial-gradient(closest-side,rgba(228,184,96,.35),rgba(147,51,234,.22),transparent_70%)]
             "
           />
 
-          {/* Feathered circular image */}
+          {/* Feathered circular image (requires .mask-feather in global.css) */}
           <div className="relative rounded-full mask-feather w-full h-full overflow-hidden">
             <Image
               src="/profile.jpg"
               alt="Praneetha Mukkamala"
               fill
               priority
-              sizes="(max-width: 1024px) 60vw, 540px"
+              sizes="(max-width: 1024px) 60vw, 480px"
               className="object-cover object-center"
               quality={90}
             />
