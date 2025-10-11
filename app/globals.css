@@ -76,18 +76,17 @@ html {
 }
 /* Smooth radial feather for the hero profile */
 .mask-feather {
-  /* opaque center → transparent edges */
   -webkit-mask-image: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0.75) 78%,
-    rgba(0, 0, 0, 0) 92%
+    rgba(0,0,0,1) 58%,      /* start full opacity a bit tighter */
+    rgba(0,0,0,0.70) 76%,   /* mid fade */
+    rgba(0,0,0,0) 92%       /* fully transparent near edge */
   );
   mask-image: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 1) 60%,
-    rgba(0, 0, 0, 0.75) 78%,
-    rgba(0, 0, 0, 0) 92%
+    rgba(0,0,0,1) 58%,
+    rgba(0,0,0,0.70) 76%,
+    rgba(0,0,0,0) 92%
   );
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
