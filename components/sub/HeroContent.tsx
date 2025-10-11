@@ -77,7 +77,7 @@ const HeroContent = () => {
               />
               <div className="h-[360px] w-[360px] sm:h-[400px] sm:w-[400px] rounded-full ring-1 ring-white/10 shadow-[0_0_60px_rgba(255,255,255,0.08)] overflow-hidden">
                 <Image
-                  src="/profile.jpg"
+                  src="/profilebg.jpeg"
                   alt="Praneetha portrait"
                   width={800}
                   height={800}
