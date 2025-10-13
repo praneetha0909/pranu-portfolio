@@ -51,7 +51,7 @@ const HeroContent: React.FC = () => {
               variants={slideInFromLeft(0.8)}
               className="mt-6 text-gray-300 text-base sm:text-lg max-w-2xl"
             >
-              I design and build SQL/Python ELT pipelines and dimensional models on AWS/GCP,
+              I design and build SQL/Python ETL/ELT pipelines and dimensional models on AWS/GCP,
               turning business questions into trusted datasets and clear dashboards.
             </motion.p>
 
