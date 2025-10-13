@@ -8,7 +8,7 @@ import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motio
 
 const ACCENT = "#E4B860"; // ring color
 
-const RESUME_PATH = "/Praneetha_Mukkamala_Resume.pdf"; // must be in /public
+const RESUME_PATH = "/public/Praneetha_Mukkamala_Resume.pdf"; // must be in /public
 
 const HeroContent: React.FC = () => {
   return (
