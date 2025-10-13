@@ -53,7 +53,7 @@ const HeroContent: React.FC = () => {
             {/* Resume — use <a> to open reliably. The file must be in /public (no /public in the URL). */}
             <motion.div variants={slideInFromLeft(1)} className="mt-7 flex justify-center md:justify-start">
               <a
-                href="/Praneetha_Mukkamala_Resume.pdf"
+                href="/PraneethaMukkamala_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Open Resume in a new tab"
