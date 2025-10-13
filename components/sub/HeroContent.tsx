@@ -55,7 +55,7 @@ const HeroContent: React.FC = () => {
             {/* Resume (use <a> so it opens reliably) */}
             <motion.div variants={slideInFromLeft(1)} className="mt-7 flex justify-center md:justify-start">
               <a
-                href={RESUME_PATH}
+                href={"/Praneetha_Mukkamala_Resume.pdf"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block rounded-lg px-6 py-3 text-white text-lg font-semibold transition-transform duration-300 hover:scale-[1.03]"
