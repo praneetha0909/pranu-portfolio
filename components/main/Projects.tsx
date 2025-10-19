@@ -253,7 +253,7 @@ const Projects: React.FC = () => {
       description:
         "Voice feedback analysis with ChatGPT integration and streaming responses.",
       skills: ["Power BI"," DAX" ," Power Query"," Azure Maps"],
-      github: "https://github.com/praneetha0909/H1b-Insights-Dashboard---2025-using-Power-BI",
+      github: "https://github.com/praneetha0909/ConversAI-VoiceBot-Assistant",
     },
     {
       src: "/H1B.jpeg",
@@ -261,7 +261,7 @@ const Projects: React.FC = () => {
       description:
         "A Power BI dashboard analyzing USCIS H-1B petition data for FY2025, showcasing trends in approvals, denials, and employer activity across states. It delivers interactive insights on approval rates, top employers, and geographic patterns using DAX, Power Query, and Azure Maps.",
       skills: ["Web Speech API", "Node/Flask", "LLM", "Streaming", "OpenAI API"],
-      github: "https://github.com/praneetha0909/ConversAI-VoiceBot-Assistant",
+      github: "https://github.com/praneetha0909/H1b-Insights-Dashboard---2025-using-Power-BI",
     },
   ];
 
